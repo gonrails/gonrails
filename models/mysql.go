@@ -54,4 +54,5 @@ func init() {
 	)
 
 	db.AutoMigrate(&ScoreDetail{})
+	db.AutoMigrate(&BetOrder{})
 }

@@ -11,6 +11,7 @@ var (
 	config *viper.Viper
 	MySQL  *mySQL
 	Redis  *redis
+	Rabbit *rabbit
 )
 
 type mySQL struct {
@@ -28,6 +29,13 @@ type redis struct {
 	Port string
 }
 
+type rabbit struct {
+	Host     string
+	Port     string
+	User     string
+	Password string
+}
+
 func init() {
 	config = viper.New()
 	config.SetConfigFile("./config/config.yml")
@@ -38,6 +46,7 @@ func init() {
 
 	loadMySQL()
 	loadRedis()
+	loadRabbit()
 }
 
 func loadMySQL() {
@@ -62,5 +71,15 @@ func loadRedis() {
 	Redis = &redis{
 		Host: t["host"],
 		Port: t["port"],
+	}
+}
+
+func loadRabbit() {
+	t := config.GetStringMapString(os.Getenv("GO_ENV") + ".RabbitMQ")
+	Rabbit = &rabbit{
+		Host:     t["host"],
+		Port:     t["port"],
+		User:     t["user"],
+		Password: t["password"],
 	}
 }

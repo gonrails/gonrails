@@ -7,7 +7,7 @@ type ScoreDetail struct {
 	ID            uint `gorm:"primary_key"`
 	ScoreableType sql.NullString
 	ScoreableID   sql.NullInt64
-	Date          string `gorm:"type:varchar(10)"`
+	Date          string `gorm:"type:varchar(10)"` // 结算的日期
 	Game          Game
 	GameID        int
 	Tenant        Tenant
