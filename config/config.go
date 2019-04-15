@@ -1,8 +1,8 @@
 package config
 
 import (
-	"fmt"
 	"os"
+	"strconv"
 
 	"github.com/spf13/viper"
 )
@@ -16,10 +16,11 @@ var (
 type mySQL struct {
 	Host        string
 	Port        string
-	User        string
+	Name        string
+	Username    string
 	Password    string
-	Connections int32
-	Idles       int32
+	Connections int
+	Idles       int
 }
 
 type redis struct {
@@ -37,19 +38,22 @@ func init() {
 
 	loadMySQL()
 	loadRedis()
-
-	fmt.Println(MySQL.Host)
-	fmt.Println(Redis.Host)
 }
 
 func loadMySQL() {
 
 	t := config.GetStringMapString(os.Getenv("GO_ENV") + ".MySQL")
+	connections, _ := strconv.Atoi(t["connections"])
+	idles, _ := strconv.Atoi(t["idles"])
+
 	MySQL = &mySQL{
-		Host:     t["host"],
-		Port:     t["port"],
-		User:     t["user"],
-		Password: t["password"],
+		Host:        t["host"],
+		Port:        t["port"],
+		Name:        t["name"],
+		Username:    t["username"],
+		Password:    t["password"],
+		Connections: connections,
+		Idles:       idles,
 	}
 }
 
