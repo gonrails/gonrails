@@ -53,6 +53,9 @@ func init() {
 		config.MySQL.Name,
 	)
 
+	db.AutoMigrate(&Game{})
 	db.AutoMigrate(&ScoreDetail{})
 	db.AutoMigrate(&BetOrder{})
+	db.AutoMigrate(&BetOrderAddition{})
+	db.AutoMigrate(&Tenant{})
 }

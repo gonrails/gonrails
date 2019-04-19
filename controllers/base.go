@@ -4,6 +4,7 @@ import (
 	"kalista/controllers/admin"
 	"kalista/controllers/outer"
 	"net/http"
+	"os"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -23,6 +24,7 @@ func Start() {
 }
 
 func getRouters() *gin.Engine {
+	gin.SetMode(os.Getenv("GO_ENV"))
 	router := gin.Default()
 	root := router.Group("")
 	{

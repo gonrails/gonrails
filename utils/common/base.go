@@ -1,6 +1,7 @@
 package common
 
 import (
+	"database/sql"
 	"fmt"
 	"log"
 	"time"
@@ -13,3 +14,16 @@ var (
 	p                      = fmt.Println
 	l                      = log.Println
 )
+
+func FailOnError(err error, msg string) {
+	if err != nil {
+		log.Fatalf("%s: %s", err, msg)
+	}
+}
+
+func ToNullString(s string) sql.NullString {
+	return sql.NullString{
+		String: s,
+		Valid:  s != "",
+	}
+}

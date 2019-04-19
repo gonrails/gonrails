@@ -44,12 +44,12 @@ func init() {
 		panic(err)
 	}
 
-	loadMySQL()
-	loadRedis()
-	loadRabbit()
+	loadMySQLConfig()
+	loadRedisConfig()
+	loadRabbitConfig()
 }
 
-func loadMySQL() {
+func loadMySQLConfig() {
 
 	t := config.GetStringMapString(os.Getenv("GO_ENV") + ".MySQL")
 	connections, _ := strconv.Atoi(t["connections"])
@@ -66,7 +66,7 @@ func loadMySQL() {
 	}
 }
 
-func loadRedis() {
+func loadRedisConfig() {
 	t := config.GetStringMapString(os.Getenv("GO_ENV") + ".Redis")
 	Redis = &redis{
 		Host: t["host"],
@@ -74,7 +74,7 @@ func loadRedis() {
 	}
 }
 
-func loadRabbit() {
+func loadRabbitConfig() {
 	t := config.GetStringMapString(os.Getenv("GO_ENV") + ".RabbitMQ")
 	Rabbit = &rabbit{
 		Host:     t["host"],
