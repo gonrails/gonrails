@@ -1,8 +1,10 @@
 package admin
 
 import (
-	"github.com/gin-gonic/gin"
 	"kalista/controllers/admin/reports"
+	"kalista/controllers/admin/tenants"
+
+	"github.com/gin-gonic/gin"
 )
 
 func ping(c *gin.Context) {
@@ -15,6 +17,7 @@ func ApplyRoutes(router *gin.RouterGroup) {
 	adminGroup := router.Group("/admin")
 	{
 		reports.ApplyRoutes(adminGroup)
+		adminGroup.POST("/tenants", tenants.Create)
 	}
 }
 
