@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	_ "kalista/config"
-	"kalista/models"
+	"kalista/controllers"
 	"kalista/utils/common"
 	_ "kalista/utils/sources"
 )
@@ -13,8 +13,7 @@ var (
 )
 
 func main() {
-	//controllers.Start()
+	controllers.Start()
 	fmt.Println(common.RandStr(63))
 
-	models.NewTenant()
 }

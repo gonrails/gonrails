@@ -1,10 +1,8 @@
 package admin
 
 import (
-	"kalista/controllers/admin/revenue_reports"
-	"kalista/controllers/admin/topic_reports"
-
 	"github.com/gin-gonic/gin"
+	"kalista/controllers/admin/reports"
 )
 
 func ping(c *gin.Context) {
@@ -16,8 +14,14 @@ func ping(c *gin.Context) {
 func ApplyRoutes(router *gin.RouterGroup) {
 	adminGroup := router.Group("/admin")
 	{
-		adminGroup.GET("/ping", ping)
-		adminGroup.GET("/revenue_reports", revenue_reports.Index)
-		adminGroup.GET("/topics_reports", topic_reports.Index)
+		reports.ApplyRoutes(adminGroup)
 	}
+}
+
+func currentEmployee() {
+
+}
+
+func authenticate(ctx *gin.Context) bool {
+	return true
 }

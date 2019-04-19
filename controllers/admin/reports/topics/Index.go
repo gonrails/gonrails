@@ -1,4 +1,4 @@
-package topic_reports
+package topics
 
 import "github.com/gin-gonic/gin"
 

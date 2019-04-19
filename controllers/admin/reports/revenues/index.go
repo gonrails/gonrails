@@ -1,4 +1,4 @@
-package revenue_reports
+package revenues
 
 import "github.com/gin-gonic/gin"
 
