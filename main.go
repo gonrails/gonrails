@@ -1,26 +1,15 @@
 package main
 
 import (
-	"fmt"
-
 	_ "kalista/config"
-	"kalista/models"
-	"kalista/utils/common"
+	"kalista/controllers"
 	_ "kalista/utils/sources"
-	"time"
+)
+
+var (
+	forever = make(chan bool)
 )
 
 func main() {
-	defer models.Close() // 程序退出之后需要关闭数据库
-
-	models.Tenant{}.Count()
-
-	p := fmt.Println
-
-	t := time.Now()
-
-	p(t.Format(common.DateTimeFormatWithZone))
-
-	p(t.Format(common.DateFormat))
-
+	controllers.Start()
 }

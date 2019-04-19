@@ -2,6 +2,10 @@ package models
 
 import "database/sql"
 
+// belongs_to Game
+// belongs_to Tenant
+// belongs_to Scoreable (polymorphic) Gorm 不支持
+
 // ScoreDetail 久远来看应该是一个多态关联, ScoreableType ScoreableID
 type ScoreDetail struct {
 	ID            uint `gorm:"primary_key"`
