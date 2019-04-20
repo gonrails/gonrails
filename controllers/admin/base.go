@@ -18,6 +18,7 @@ func ApplyRoutes(router *gin.RouterGroup) {
 	{
 		reports.ApplyRoutes(adminGroup)
 		adminGroup.POST("/tenants", tenants.Create)
+		adminGroup.GET("/tenants", tenants.Index)
 	}
 }
 
@@ -28,3 +29,8 @@ func currentEmployee() {
 func authenticate(ctx *gin.Context) bool {
 	return true
 }
+
+// 需要有一些通用的方法
+
+// currentPage
+// filter 方法

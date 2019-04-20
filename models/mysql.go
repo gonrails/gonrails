@@ -43,6 +43,10 @@ func Close() {
 	db.Close()
 }
 
+func DB() *gorm.DB {
+	return db
+}
+
 func init() {
 
 	db = open(
