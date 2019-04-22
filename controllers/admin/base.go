@@ -10,10 +10,6 @@ type Response struct {
 	Data interface{} `json:"data"`
 }
 
-func DoResponse() {
-
-}
-
 func CurrentPage(ctx *gin.Context) int {
 	page, ok := ctx.GetQuery("page")
 

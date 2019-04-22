@@ -11,7 +11,8 @@ func ApplyRoutes(router *gin.RouterGroup) {
 	adminGroup := router.Group("/admin")
 	{
 		reports.ApplyRoutes(adminGroup)
-		adminGroup.POST("/tenants", tenants.Create)
 		adminGroup.GET("/tenants", tenants.Index)
+		adminGroup.GET("/tenants/:id", tenants.Show)
+		adminGroup.POST("/tenants", tenants.Create)
 	}
 }
