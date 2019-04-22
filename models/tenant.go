@@ -21,12 +21,6 @@ func (t *Tenant) BeforeCreate() (err error) {
 	return
 }
 
-func (t *Tenant) Serialize() map[string]interface{} {
-	return map[string]interface{}{
-		"id": t.ID,
-	}
-}
-
 // Create
 func NewTenant() {
 	t := &Tenant{

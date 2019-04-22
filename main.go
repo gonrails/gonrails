@@ -2,7 +2,7 @@ package main
 
 import (
 	_ "kalista/config"
-	"kalista/controllers"
+	"kalista/routers"
 	_ "kalista/utils/sources"
 )
 
@@ -11,5 +11,5 @@ var (
 )
 
 func main() {
-	controllers.Start()
+	routers.Start()
 }

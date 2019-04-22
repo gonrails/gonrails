@@ -1,15 +1,1 @@
 package reports
-
-import (
-	"github.com/gin-gonic/gin"
-	"kalista/controllers/admin/reports/revenues"
-	"kalista/controllers/admin/reports/topics"
-)
-
-func ApplyRoutes(router *gin.RouterGroup) {
-	reportGroup := router.Group("/reports")
-	{
-		reportGroup.GET("/revenues", revenues.Index)
-		reportGroup.GET("/topics", topics.Index)
-	}
-}

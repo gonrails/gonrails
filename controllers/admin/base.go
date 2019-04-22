@@ -1,25 +1,28 @@
 package admin
 
 import (
-	"kalista/controllers/admin/reports"
-	"kalista/controllers/admin/tenants"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
 
-func ping(c *gin.Context) {
-	c.JSON(200, gin.H{
-		"message": "pong",
-	})
+type Response struct {
+	Data interface{} `json:"data"`
 }
 
-func ApplyRoutes(router *gin.RouterGroup) {
-	adminGroup := router.Group("/admin")
-	{
-		reports.ApplyRoutes(adminGroup)
-		adminGroup.POST("/tenants", tenants.Create)
-		adminGroup.GET("/tenants", tenants.Index)
+func DoResponse() {
+
+}
+
+func CurrentPage(ctx *gin.Context) int {
+	page, ok := ctx.GetQuery("page")
+
+	if !ok {
+		page = "1" // Default Page
 	}
+
+	currentPage, _ := strconv.Atoi(page)
+	return currentPage
 }
 
 func currentEmployee() {

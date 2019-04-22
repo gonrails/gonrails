@@ -3,7 +3,8 @@ package serializers
 type Serialize interface {
 }
 
-func SingleSerializer() {
+// Template 应该设计如此 ( template.Serialize(v))
+func SingleSerializer(v interface{}, template interface{}) {
 
 }
 
