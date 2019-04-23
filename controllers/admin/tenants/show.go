@@ -15,5 +15,6 @@ func Show(ctx *gin.Context) {
 
 	ctx.JSON(200, gin.H{
 		"data": serializers.SingleSerializer(tenant, &AdminTenantShowSerializer{}),
+		"meta": 322,
 	})
 }

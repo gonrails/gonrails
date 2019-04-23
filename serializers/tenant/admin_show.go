@@ -19,11 +19,13 @@ type AdminTenantShowSerializer struct {
 func (s *AdminTenantShowSerializer) Serialize(v interface{}) map[string]interface{} {
 
 	if s, ok := v.(*models.Tenant); ok {
-
 		log.Println(s)
-	}
-
-	return map[string]interface{}{
-		"id": "abc",
+		return map[string]interface{}{
+			"id": "right",
+		}
+	} else {
+		return map[string]interface{}{
+			"id": "abc",
+		}
 	}
 }

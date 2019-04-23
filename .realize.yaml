@@ -1,0 +1,27 @@
+settings:
+  legacy:
+    force: false
+    interval: 0s
+server:
+  status: false
+  open: false
+  host: localhost
+  port: 8080
+schema:
+- name: /Users/ctao/Developer/Risewinter/kalista
+  path: /Users/ctao/Developer/Risewinter/kalista
+  env:
+    GO_ENV: debug
+  commands:
+    run:
+      status: true
+  watcher:
+    extensions:
+    - go
+    paths:
+    - /
+    ignore:
+      paths:
+      - .git
+      - .realize
+      - vendor
