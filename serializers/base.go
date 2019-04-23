@@ -1,3 +1,10 @@
+/*
+Author: 曾涛
+Desc:   处理序列化的 基本接口类型 描述
+Date:   2019-04-23
+Email:  zengtao@risewinter.com
+*/
+
 package serializers
 
 type Serializer interface {

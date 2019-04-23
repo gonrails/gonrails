@@ -4,6 +4,8 @@ import (
 	"kalista/models"
 	"kalista/serializers"
 
+	. "kalista/serializers/tenant"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -23,7 +25,7 @@ func call(ctx *gin.Context) {
 	var tenant = &models.Tenant{}
 	models.DB().Model(tenant).First(tenant)
 
-	serializers.SingleSerializer(tenant, &models.AdminTenantIndexSerializer{})
+	serializers.SingleSerializer(tenant, &AdminTenantIndexSerializer{})
 }
 
 //{
