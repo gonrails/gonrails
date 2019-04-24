@@ -14,7 +14,7 @@ func Show(ctx *gin.Context) {
 	models.DB().Model(tenant).First(tenant)
 
 	ctx.JSON(200, gin.H{
-		"data": serializers.SingleSerializer(tenant, &AdminTenantShowSerializer{}),
+		"data": serializers.SingleSerializer(&AdminTenantShowSerializer{}, tenant),
 		"meta": 322,
 	})
 }

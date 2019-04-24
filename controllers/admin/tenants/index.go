@@ -3,44 +3,29 @@ package tenants
 import (
 	"kalista/models"
 	"kalista/serializers"
-
 	. "kalista/serializers/tenant"
 
 	"github.com/gin-gonic/gin"
 )
 
+// Index GET - /admin/tenants
 func Index(ctx *gin.Context) {
 	var tenant = &models.Tenant{}
 	models.DB().Model(tenant).First(tenant)
 
-	call(ctx)
-
 	data, _ := models.Tenants(0, 10)
+
+	resp, err := serializers.CollectionSerializer(&AdminTenantIndexSerializer{}, data)
+
+	if err != nil {
+		ctx.JSON(400, gin.H{
+			"data": err,
+		})
+	}
+
 	ctx.JSON(200, gin.H{
-		"data": data,
+		"data": resp,
 	})
 }
 
-func call(ctx *gin.Context) {
-	var tenant = &models.Tenant{}
-	models.DB().Model(tenant).First(tenant)
-
-	serializers.SingleSerializer(tenant, &AdminTenantIndexSerializer{})
-}
-
-//{
-//	data: {
-//
-//	},
-//	meta: {
-//
-//	}
-//}
-
-//{
-//	data: [
-//	],
-//	meta: {
-//
-//	}
-//}
+//[]*models.Tenant

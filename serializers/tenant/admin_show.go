@@ -26,8 +26,8 @@ func (s *AdminTenantShowSerializer) Serialize(v interface{}) map[string]interfac
 				ID:     obj.ID,
 				Name:   obj.Name.String,
 				APIKey: obj.ApiKey,
-			}}
-
+			},
+		}
 		ans, _ := struct2json.Convert(s)
 		return ans
 	}
