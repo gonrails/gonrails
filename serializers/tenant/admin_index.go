@@ -1,7 +1,7 @@
 package tenant
 
 type AdminTenantIndexSerializer struct {
-	baseTenantSerializer
+	*BaseTenantSerializer
 }
 
 func (s *AdminTenantIndexSerializer) Serialize(v interface{}) map[string]interface{} {

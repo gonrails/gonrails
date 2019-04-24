@@ -1,7 +1,8 @@
 package tenant
 
-type baseTenantSerializer struct {
-	ID     string `json:"id"`
+// BaseTenantSerializer is the basic tenant serializer info
+type BaseTenantSerializer struct {
+	ID     uint   `json:"id"`
 	Name   string `json:"name"`
-	ApiKey string `json:"api_key"`
+	APIKey string `json:"api_key"`
 }

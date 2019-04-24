@@ -9,23 +9,29 @@ package tenant
 
 import (
 	"kalista/models"
-	"log"
+	"kalista/utils/struct2json"
 )
 
+// AdminTenantShowSerializer - GET /admin/tenants/:id
 type AdminTenantShowSerializer struct {
-	baseTenantSerializer
+	*BaseTenantSerializer `noroot:"true"`
 }
 
+// Serialize makes AdminTenantShowSerializer satisfy Serializer interface
 func (s *AdminTenantShowSerializer) Serialize(v interface{}) map[string]interface{} {
 
-	if s, ok := v.(*models.Tenant); ok {
-		log.Println(s)
-		return map[string]interface{}{
-			"id": "right",
-		}
-	} else {
-		return map[string]interface{}{
-			"id": "abc",
-		}
+	if obj, ok := v.(*models.Tenant); ok {
+		s = &AdminTenantShowSerializer{
+			&BaseTenantSerializer{
+				ID:     obj.ID,
+				Name:   obj.Name.String,
+				APIKey: obj.ApiKey,
+			}}
+
+		ans, _ := struct2json.Convert(s)
+		return ans
+	}
+	return map[string]interface{}{
+		"error": "params passed to method Serialize(v interface{}) is not a Tenant",
 	}
 }
