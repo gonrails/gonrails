@@ -14,7 +14,7 @@ import (
 
 // AdminTenantIndexSerializer - GET /admin/tenants
 type AdminTenantIndexSerializer struct {
-	*BaseTenantSerializer
+	*BaseTenantSerializer `json:"base"`
 }
 
 // Serialize makes AdminTenantIndexSerializer satisfy Serializer interface

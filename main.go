@@ -1,15 +1,38 @@
 package main
 
 import (
+	"fmt"
 	_ "kalista/config"
-	"kalista/routers"
 	_ "kalista/utils/sources"
-)
-
-var (
-	forever = make(chan bool)
+	"kalista/utils/struct2json"
 )
 
 func main() {
-	routers.Start()
+	//routers.Start()
+
+	amain()
+}
+
+type My struct {
+	A int `json:"a"`
+}
+
+type myStruct struct {
+	M   My `json:"m" noroot:"true"`
+	*My `noroot:"true"`
+
+	B *int
+}
+
+func amain() {
+
+	input := myStruct{
+		My: &My{
+			A: 1,
+		},
+	}
+
+	ans, _ := struct2json.Convert(input)
+
+	fmt.Println(ans)
 }

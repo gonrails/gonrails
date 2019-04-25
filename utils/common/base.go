@@ -3,15 +3,8 @@ package common
 import (
 	"database/sql"
 	"log"
-	"time"
 
 	"encoding/json"
-)
-
-var (
-	DateFormat             = "2006-01-02"
-	DateTimeFormat         = "2006-01-02 15:04:05"
-	DateTimeFormatWithZone = time.RFC3339
 )
 
 func FailOnError(err error, msg string) {
@@ -37,9 +30,8 @@ type NullString struct {
 func (v *NullString) MarshalJSON() ([]byte, error) {
 	if v.Valid {
 		return json.Marshal(v.String)
-	} else {
-		return json.Marshal(nil)
 	}
+	return json.Marshal(nil)
 }
 
 func (v NullString) UnmarshalJSON(data []byte) error {

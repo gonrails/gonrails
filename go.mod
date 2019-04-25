@@ -36,6 +36,10 @@ require (
 	github.com/spf13/viper v1.3.2
 	github.com/streadway/amqp v0.0.0-20190312223743-14f78b41ce6d
 	github.com/valyala/fasttemplate v1.0.1 // indirect
+	golang.org/x/crypto v0.0.0-20190418165655-df01cb2cc480 // indirect
+	golang.org/x/net v0.0.0-20190419010253-1f3472d942ba // indirect
+	golang.org/x/sys v0.0.0-20190418153312-f0ce4c0180be // indirect
+	golang.org/x/tools v0.0.0-20190418235243-4796d4bd3df0 // indirect
 	google.golang.org/appengine v1.5.0 // indirect
 	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
 	gopkg.in/go-playground/validator.v8 v8.18.2 // indirect

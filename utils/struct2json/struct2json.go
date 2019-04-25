@@ -5,6 +5,18 @@ Date:   2019-04-24
 Email:  zengtao@risewinter.com
 */
 
+/*
+ChangeLogs:
+
+---------------------------------------------
+
+Date:   2019-04-25
+Author: 曾涛
+Desc:   增加嵌套和空指针的支持 (递归调用) 支持 noroot tag
+
+---------------------------------------------
+*/
+
 package struct2json
 
 import (
@@ -32,6 +44,30 @@ func getKey(f *reflect.StructField) string {
 	return key
 }
 
+func getNoroot(f *reflect.StructField) bool {
+	if _, ok := f.Tag.Lookup("noroot"); ok {
+		return true
+	}
+	return false
+}
+
+func getMapValue(v reflect.Value) (i interface{}) {
+
+	if reflect.Ptr == v.Kind() {
+		v = v.Elem()
+	}
+
+	if reflect.Invalid == v.Kind() {
+		return nil
+	}
+
+	if reflect.Struct == v.Kind() {
+		ans, _ := Convert(v.Interface())
+		return ans
+	}
+	return v.Interface()
+}
+
 // Convert converts a struct to a common JSON
 // Convert should be recursive
 func Convert(struc interface{}) (map[string]interface{}, error) {
@@ -45,10 +81,17 @@ func Convert(struc interface{}) (map[string]interface{}, error) {
 	}
 
 	for i := 0; i < sType.NumField(); i++ {
-
 		filed := sType.Field(i)
 		value := sVal.FieldByName(filed.Name)
-		ansMap[getKey(&filed)] = value.Interface()
+
+		if getNoroot(&filed) {
+			subMap := getMapValue(value).(map[string]interface{})
+			for k, v := range subMap {
+				ansMap[k] = v
+			}
+		} else {
+			ansMap[getKey(&filed)] = getMapValue(value)
+		}
 	}
 
 	return ansMap, nil
