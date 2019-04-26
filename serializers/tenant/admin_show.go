@@ -9,7 +9,8 @@ package tenant
 
 import (
 	"kalista/models"
-	"kalista/utils/struct2json"
+
+	"github.com/w-zengtao/struct2json"
 )
 
 // AdminTenantShowSerializer - GET /admin/tenants/:id

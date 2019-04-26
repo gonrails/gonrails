@@ -9,12 +9,13 @@ package tenant
 
 import (
 	"kalista/models"
-	"kalista/utils/struct2json"
+
+	"github.com/w-zengtao/struct2json"
 )
 
 // AdminTenantIndexSerializer - GET /admin/tenants
 type AdminTenantIndexSerializer struct {
-	*BaseTenantSerializer `json:"base"`
+	*BaseTenantSerializer `json:"base" noroot:"true"`
 }
 
 // Serialize makes AdminTenantIndexSerializer satisfy Serializer interface

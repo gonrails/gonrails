@@ -1,3 +1,10 @@
+/*
+Author: 曾涛
+Desc:   Admin API 实现的基础包功能
+Date:   2019-04-26
+Email:  zengtao@risewinter.com
+*/
+
 package admin
 
 import (
@@ -12,11 +19,9 @@ type Response struct {
 
 func CurrentPage(ctx *gin.Context) int {
 	page, ok := ctx.GetQuery("page")
-
 	if !ok {
 		page = "1" // Default Page
 	}
-
 	currentPage, _ := strconv.Atoi(page)
 	return currentPage
 }

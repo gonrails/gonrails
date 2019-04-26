@@ -17,7 +17,7 @@ Desc:   增加嵌套和空指针的支持 (递归调用) 支持 noroot tag
 ---------------------------------------------
 */
 
-package struct2json
+package deprecated
 
 import (
 	"errors"
