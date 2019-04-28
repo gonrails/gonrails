@@ -7,10 +7,26 @@ Email:  zengtao@risewinter.com
 
 package revenues
 
-import "github.com/gin-gonic/gin"
+import (
+	"kalista/controllers"
+	"kalista/models"
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
 
 func Index(ctx *gin.Context) {
+	var revenues = []*models.RevenueReport{}
+	var report = &models.RevenueReport{}
 
+	querys := ctx.Request.URL.Query()
+	report.FilterParams(controllers.QueryToMap(querys)).Find(&revenues)
+
+	//resp, err := serializers.CollectionSerializer()
+
+	ctx.JSON(http.StatusOK, gin.H{
+		"data": revenues,
+	})
 }
 
 // Tenant
