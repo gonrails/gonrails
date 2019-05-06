@@ -19,7 +19,7 @@ type BetOrder struct {
 	Status        int
 	TenantUserID  uint          `gorm:"column:tenant_customer_no"`
 	TenantOrderNo string        `gorm:"column:tenant_order_no"`
-	ScoreDetails  []ScoreDetail `gorm:"polymorphic:Scoreable"` // 一个订单可能关联多个 ScoreDetail
+	ScoreDetails  []ScoreDetail `gorm:"polymorphic:Scoreable;"` // 一个订单可能关联多个 ScoreDetail
 }
 
 func (bet_order *BetOrder) FindById(id uint) {
