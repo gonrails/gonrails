@@ -14,7 +14,7 @@ import (
 )
 
 // 到时候这里可以抽象成为通用的 v interface{}
-func (v *RevenueReport) ithDate(date string) *gorm.DB {
+func (v *RevenueReport) withDate(date string) *gorm.DB {
 	return db.Model(v).Where(&RevenueReport{Date: date})
 }
 

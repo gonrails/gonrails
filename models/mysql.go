@@ -62,5 +62,7 @@ func init() {
 	// db.AutoMigrate(&BetOrder{})
 	// db.AutoMigrate(&BetOrderAddition{})
 	// db.AutoMigrate(&Tenant{})
-	db.AutoMigrate(&RevenueReport{})
+	//db.AutoMigrate(&RevenueReport{})
+
+	// db.AutoMigrate(&Statistic{})
 }

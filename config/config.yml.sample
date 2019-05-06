@@ -1,20 +1,35 @@
-Debug:
+debug:
   MySQL:
-    host: 127.0.0.1
+    host: localhost
     port: 3306
-    user: root
+    name: rw-datacenter-dev-golang
+    username: root
     password: mypassword
     connections: 60
     idles: 10
   Redis:
     host: 127.0.0.1
     port: 6379
-
-Production:
-  MySQL:
+  RabbitMQ:
     host: 127.0.0.1
+    port: 5672
+    user: guest
+    password: guest
+
+release:
+  MySQL:
+    host: localhost
     port: 3306
-    user: root
+    name: rw-datacenter-dev
+    username: root
     password: mypassword
     connections: 60
     idles: 10
+  Redis:
+    host: 127.0.0.1
+    port: 6379
+  RabbitMQ:
+    host: 127.0.0.1
+    port: 5672
+    user: guest
+    password: guest

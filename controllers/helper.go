@@ -11,8 +11,8 @@ import (
 	"net/url"
 )
 
+// QueryToMap - Helper methods
 func QueryToMap(query url.Values) map[string]string {
-
 	result := make(map[string]string)
 
 	for key := range query {
