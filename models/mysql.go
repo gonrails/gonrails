@@ -30,7 +30,7 @@ func open(host, port, username, password, name string) *gorm.DB {
 	}
 
 	configureMySQL(db)
-	
+
 	db.LogMode(true)
 	return db
 }
@@ -64,7 +64,6 @@ func init() {
 	// db.AutoMigrate(&BetOrder{})
 	// db.AutoMigrate(&BetOrderAddition{})
 	// db.AutoMigrate(&Tenant{})
-	//db.AutoMigrate(&RevenueReport{})
-
-	//db.AutoMigrate(&StatisticReports{})
+	// db.AutoMigrate(&RevenueReport{})
+	// db.AutoMigrate(&StatisticReports{})
 }

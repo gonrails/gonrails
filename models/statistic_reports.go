@@ -1,12 +1,26 @@
 /*
 Author: 曾涛
-Desc:   重新设计统计模块
+Desc:   重新设计统计模块 南朝四百八十寺，多少楼台烟雨中
 Date:   2019-05-06
 Email:  zengtao@risewinter.com
 */
 
 /*
 User Story
+商户
+游戏
+日期
+营收（如果亏损则为负数）
+流水 Turnover
+偿付 Payback
+系列赛数量（开盘）
+盘口数量
+竞猜用户数量
+新增竞猜用户数量
+有效订单数量
+
+belongs_to :Game
+belongs_to :Tenant
 
 UNIQ Index: (Date, Tenant, Game, TopicType)
 */

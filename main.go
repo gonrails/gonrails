@@ -7,6 +7,6 @@ import (
 )
 
 func main() {
-	//routers.Start()
 	console.Run()
+	//routers.Start()
 }

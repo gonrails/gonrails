@@ -1,19 +1,28 @@
+/*
+Author: 曾涛
+Desc:   一些类似于 IRB 的想法验证放在这里比较合适。 窗含西岭千秋雪
+Date:   2019-05-06
+Email:  zengtao@risewinter.com
+*/
+
 package console
 
 import (
-	"fmt"
 	"kalista/models"
 )
 
 func Run() {
 	var betOrder = &models.BetOrder{}
-	err := models.DB().Preload("ScoreDetails").Model(betOrder).First(betOrder).Error
-	
-	if err  != nil{
+	err := models.DB().Model(betOrder).Last(betOrder).Error
+
+	if err != nil {
 		panic(err)
 	}
-	
-	fmt.Printf("%v", betOrder)
-	fmt.Println("")
-	fmt.Printf("%v", betOrder.ScoreDetails)
+
+	// models.DB().Delete(models.StatisticReports{})
+	models.DB().Delete(models.ScoreDetail{})
+
+	betOrder.HandleCreate()
+	// betOrder.HandleCheck()
+	// betOrder.HandleCancel()
 }
