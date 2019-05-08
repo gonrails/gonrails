@@ -7,22 +7,18 @@ Email:  zengtao@risewinter.com
 
 package console
 
-import (
-	"kalista/models"
-)
-
 func Run() {
-	var betOrder = &models.BetOrder{}
-	err := models.DB().Model(betOrder).Last(betOrder).Error
+	// var betOrder = &models.BetOrder{}
+	// err := models.DB().Model(betOrder).Last(betOrder).Error
 
-	if err != nil {
-		panic(err)
-	}
+	// if err != nil {
+	// 	panic(err)
+	// }
 
 	// models.DB().Delete(models.StatisticReports{})
-	models.DB().Delete(models.ScoreDetail{})
+	// models.DB().Delete(models.ScoreDetail{})
 
-	betOrder.HandleCreate()
+	// betOrder.HandleCreate()
 	// betOrder.HandleCheck()
 	// betOrder.HandleCancel()
 }
