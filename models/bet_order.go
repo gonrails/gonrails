@@ -8,6 +8,7 @@ Email:  zengtao@risewinter.com
 package models
 
 import (
+	"fmt"
 	"kalista/utils/common"
 	"time"
 )
@@ -48,7 +49,8 @@ func (bo *BetOrder) buildScoreDetail(date, reason string, amount float32) {
 
 // HandleCreate - 处理 Created 的消息
 func (bo *BetOrder) HandleCreate() {
-	bo.buildScoreDetail(bo.CreatedAt.Format(common.DateFormat), "Created", float32(bo.Amount))
+	fmt.Println("Handler Order Create Event")
+	// bo.buildScoreDetail(bo.CreatedAt.Format(common.DateFormat), "Created", float32(bo.Amount))
 }
 
 // HandleCheck - 处理 Check 的消息

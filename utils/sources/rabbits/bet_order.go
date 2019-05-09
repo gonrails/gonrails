@@ -5,15 +5,11 @@ Date:   2019-05-09
 Email:  zengtao@risewinter.com
 */
 
-/**
- * ! 这里约定消息通信的协议是 JSON
- */
-
 package rabbits
 
 import (
+	"encoding/json"
 	"kalista/utils/common"
-	"log"
 )
 
 const (
@@ -22,17 +18,17 @@ const (
 	orderRouteKey     = "datacenter-kalista-order-event"
 )
 
+var (
+	orderChan = make(chan *OrderMessage)
+)
+
+// OrderMessage 抽象通信内容
+/**
+ * ! 这里约定消息通信的协议是 JSON
+ */
 type OrderMessage struct {
 	ID    uint
 	Event string
-}
-
-type Manager struct {
-	OrderMessages chan *OrderMessage
-}
-
-func (manager *Manager) Exec() {
-
 }
 
 // RunBetOrder -
@@ -40,7 +36,7 @@ func (manager *Manager) Exec() {
 需要复用连接
 */
 func runBetOrder() {
-	channel, err := Instance().conn.Channel()
+	channel, err := theInstance().conn.Channel()
 	common.FailOnError(err, "Failed to open a Channel")
 	defer channel.Close()
 
@@ -56,9 +52,9 @@ func runBetOrder() {
 	msgs, err := channel.Consume(queue.Name, "", true, false, false, false, nil)
 	common.FailOnError(err, "Failed to Consume the Queue")
 
-	log.Println("waiting messags...")
-
+	var message OrderMessage
 	for d := range msgs {
-		log.Println(string(d.Body))
+		json.Unmarshal(d.Body, &message)
+		orderChan <- &message
 	}
 }

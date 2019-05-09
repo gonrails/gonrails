@@ -20,18 +20,11 @@ var (
 	instance *rabbitMQSource
 )
 
-const (
-	exchangeName = ""
-	exchangeType = "direct"
-	routeKey     = ""
-)
-
 type rabbitMQSource struct {
 	conn *amqp.Connection
 }
 
-// Instance returns the singleton instance
-func Instance() *rabbitMQSource {
+func theInstance() *rabbitMQSource {
 	if instance == nil {
 		instance = newInstance()
 	}
@@ -39,7 +32,8 @@ func Instance() *rabbitMQSource {
 }
 
 func RunRabbit() {
-	runBetOrder()
+	go runBetOrder()
+	go orderHandle()
 }
 
 func newInstance() *rabbitMQSource {

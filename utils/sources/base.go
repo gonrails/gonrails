@@ -6,5 +6,4 @@ import (
 
 func init() {
 	go rabbits.RunRabbit()
-	// go runRabbit()
 }
