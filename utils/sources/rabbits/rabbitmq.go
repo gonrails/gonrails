@@ -30,29 +30,24 @@ type rabbitMQSource struct {
 	conn *amqp.Connection
 }
 
-func RabbitInstance() *rabbitMQSource {
+// Instance returns the singleton instance
+func Instance() *rabbitMQSource {
 	if instance == nil {
-		instance = newRabbitInstance()
+		instance = newInstance()
 	}
 	return instance
 }
 
-func runRabbit() {
+func RunRabbit() {
 	runBetOrder()
 }
 
-func newRabbitInstance() *rabbitMQSource {
-
-	conn, err := amqp.DialConfig(
-		fmt.Sprintf("amqp://%s:%s@%s:%s/", config.Rabbit.User, config.Rabbit.Password, config.Rabbit.Host, config.Rabbit.Port),
-		amqp.Config{},
-	)
+func newInstance() *rabbitMQSource {
+	conn, err := amqp.Dial(fmt.Sprintf("amqp://%s:%s@%s:%s/", config.Rabbit.User, config.Rabbit.Password, config.Rabbit.Host, config.Rabbit.Port))
 
 	if err != nil {
 		panic(err)
 	}
-
-	defer conn.Close()
 
 	return &rabbitMQSource{
 		conn: conn,

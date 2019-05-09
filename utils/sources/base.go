@@ -5,6 +5,6 @@ import (
 )
 
 func init() {
-	go rabbits.RunBetOrder()
+	go rabbits.RunRabbit()
 	// go runRabbit()
 }

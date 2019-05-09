@@ -1,3 +1,14 @@
+/*
+Author: 曾涛
+Desc:   BetOrder 相关的 RabbitMQ 事件 & 抽象
+Date:   2019-05-09
+Email:  zengtao@risewinter.com
+*/
+
+/**
+ * ! 这里约定消息通信的协议是 JSON
+ */
+
 package rabbits
 
 import (
@@ -29,11 +40,11 @@ func (manager *Manager) Exec() {
 需要复用连接
 */
 func runBetOrder() {
-	channel, err := instance.conn.Channel()
+	channel, err := Instance().conn.Channel()
 	common.FailOnError(err, "Failed to open a Channel")
 	defer channel.Close()
 
-	err = channel.ExchangeDeclare(exchangeName, exchangeType, false, false, false, false, nil)
+	err = channel.ExchangeDeclare(orderExchangeName, orderExchangeType, false, false, false, false, nil)
 	common.FailOnError(err, "Failed to Declare an Exchange")
 
 	queue, err := channel.QueueDeclare("", false, false, true, false, nil)
@@ -45,7 +56,9 @@ func runBetOrder() {
 	msgs, err := channel.Consume(queue.Name, "", true, false, false, false, nil)
 	common.FailOnError(err, "Failed to Consume the Queue")
 
+	log.Println("waiting messags...")
+
 	for d := range msgs {
-		log.Println(d.Body)
+		log.Println(string(d.Body))
 	}
 }
