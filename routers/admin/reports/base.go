@@ -16,3 +16,8 @@ func ApplyRoutes(router *gin.RouterGroup) {
 		reportGroup.GET("/statistics", statistics.Index)
 	}
 }
+
+type myInt struct {
+	value  int
+	inited bool
+}
