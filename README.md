@@ -211,12 +211,42 @@
     ```
   * [helper.go](https://github.com/one-hole/kalista/blob/master/controllers/helper.go) 这里会存放一些通用的方法、比如获取当前的分页、比如把 Query 转化成 Map 的一些通用方法
 
-#### [Serializers]() 这里也就是我们的 View 层
+#### [Serializers](https://github.com/one-hole/kalista/tree/master/serializers) 这里也就是我们的 View 层
+  
+  * Serializers 目录（包）主要存储我们即将结构化输出的序列化的结构体
+  * 定义了两个方法分别用来序列化单个对象 和 序列化集合对象（这两个方法无需改动）
 
+    ```go
+    func SingleSerializer(s Serializer, v interface{}) map[string]interface{} {
+      return s.Serialize(v)
+    }
+    ```
+    
+    ```go
+    func CollectionSerializer(s Serializer, vs interface{}) ([]map[string]interface{}, error) {
 
+      ansAry := []map[string]interface{}{}
 
-### Dev
+      if reflect.Slice != reflect.TypeOf(vs).Kind() {
+        return []map[string]interface{}{}, errors.New("Data must be slice type")
+      }
 
-```bash
-realize start
-```
+      value := reflect.ValueOf(vs)
+
+      for i := 0; i < value.Len(); i++ {
+        ansAry = append(ansAry, s.Serialize(value.Index(i).Interface()))
+      }
+
+      return ansAry, nil
+    }
+    ```
+  * 每一个用来序列化的结构体定义都需要实现这个方法
+
+    ```go
+    type Serializer interface {
+      Serialize(v interface{}) map[string]interface{}
+    }
+    ```
+  * 在这里我提供了一个组件 [Struct2Json](https://github.com/w-zengtao/struct2json) 来帮助我们直接把嵌套的对象 转化成 map[string]interface{} 
+
+    使用案例 - [statistic_index_serializer.go](https://github.com/one-hole/kalista/blob/master/serializers/report/statistic_index_serializer.go)
