@@ -250,3 +250,13 @@
   * 在这里我提供了一个组件 [Struct2Json](https://github.com/w-zengtao/struct2json) 来帮助我们直接把嵌套的对象 转化成 map[string]interface{} 
 
     使用案例 - [statistic_index_serializer.go](https://github.com/one-hole/kalista/blob/master/serializers/report/statistic_index_serializer.go)
+
+
+#### Docker
+
+```bash
+docker build kalista:1.0 .
+
+docker run -e GO_ENV=debug -v "/$(pwd)/config/config.yml:/root/config/config.yml"  kalista:1.0
+docker run -e GO_ENV=release -v "/$(pwd)/config/config.yml:/root/config/config.yml"  kalista:1.0
+```

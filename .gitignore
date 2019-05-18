@@ -16,3 +16,5 @@ logs/*.log
 *.dylib
 *.test
 *.out
+
+kalista

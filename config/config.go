@@ -1,6 +1,7 @@
 package config
 
 import (
+	"log"
 	"os"
 	"strconv"
 
@@ -37,6 +38,9 @@ type rabbit struct {
 }
 
 func init() {
+
+	log.Printf("GO_ENV is : %s\n", os.Getenv("GO_ENV"))
+
 	config = viper.New()
 	config.SetConfigFile("./config/config.yml")
 
@@ -47,6 +51,10 @@ func init() {
 	loadMySQLConfig()
 	loadRedisConfig()
 	loadRabbitConfig()
+
+	log.Printf("MySQL HOST is : %s\n", MySQL.Host)
+	log.Printf("Redis HOST is : %s\n", Redis.Host)
+	log.Printf("Rabbit HOST is : %s\n", Rabbit.Host)
 }
 
 func loadMySQLConfig() {
