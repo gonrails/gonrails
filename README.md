@@ -1,4 +1,7 @@
 [Kalista](https://github.com/one-hole/kalista) 是基于 [Gin](https://github.com/gin-gonic/gin) 改造的后端 MVC 开发框架
+
+[![Go Report Card](https://goreportcard.com/badge/github.com/one-hole/kalista)](https://goreportcard.com/report/github.com/one-hole/kalista)
+[![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 --------
 
 * QQ 群： 594171535
@@ -259,4 +262,7 @@ docker build kalista:1.0 .
 
 docker run -e GO_ENV=debug -v "/$(pwd)/config/config.yml:/root/config/config.yml"  kalista:1.0
 docker run -e GO_ENV=release -v "/$(pwd)/config/config.yml:/root/config/config.yml"  kalista:1.0
+
+实时日志
+docker logs -f your-container-id
 ```
