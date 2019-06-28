@@ -1,8 +1,9 @@
 package models
 
 import (
-	"kalista/utils/common"
 	"time"
+
+	"github.com/one-hole/gonrails/utils/common"
 )
 
 type Tenant struct {

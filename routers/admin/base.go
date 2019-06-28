@@ -1,10 +1,9 @@
 package admin
 
 import (
-	"kalista/controllers/admin/tenants"
-	"kalista/routers/admin/reports"
-
 	"github.com/gin-gonic/gin"
+	"github.com/one-hole/gonrails/controllers/admin/tenants"
+	"github.com/one-hole/gonrails/routers/admin/reports"
 )
 
 func ApplyRoutes(router *gin.RouterGroup) {

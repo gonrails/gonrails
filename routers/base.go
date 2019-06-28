@@ -1,11 +1,12 @@
 package routers
 
 import (
-	"kalista/routers/admin"
-	"kalista/routers/outer"
 	"net/http"
 	"os"
 	"time"
+
+	"github.com/one-hole/gonrails/routers/admin"
+	"github.com/one-hole/gonrails/routers/outer"
 
 	"github.com/gin-gonic/gin"
 )

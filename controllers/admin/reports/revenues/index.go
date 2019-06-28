@@ -8,12 +8,11 @@ Email:  zengtao@risewinter.com
 package revenues
 
 import (
-	"kalista/controllers"
-	"kalista/models"
-	"kalista/serializers"
-	reports "kalista/serializers/report"
+	reports "github.com/one-hole/gonrails/serializers/report"
 	"net/http"
-
+	"github.com/one-hole/gonrails/controllers"
+	"github.com/one-hole/gonrails/models"
+	"github.com/one-hole/gonrails/serializers"
 	"github.com/gin-gonic/gin"
 )
 

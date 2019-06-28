@@ -1,7 +1,7 @@
 package rabbits
 
 import (
-	"kalista/models"
+	"github.com/one-hole/gonrails/models"
 )
 
 func orderHandle() {

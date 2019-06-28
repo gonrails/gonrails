@@ -2,12 +2,12 @@ package models
 
 import (
 	"fmt"
-	"kalista/config"
 	"log"
 	"time"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
+	"github.com/one-hole/gonrails/config"
 )
 
 var (

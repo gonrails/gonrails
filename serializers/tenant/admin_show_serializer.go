@@ -8,8 +8,7 @@ Email:  zengtao@risewinter.com
 package tenant
 
 import (
-	"kalista/models"
-
+	"github.com/one-hole/gonrails/models"
 	"github.com/w-zengtao/struct2json"
 )
 

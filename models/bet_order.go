@@ -9,8 +9,9 @@ package models
 
 import (
 	"fmt"
-	"kalista/utils/common"
 	"time"
+
+	"github.com/one-hole/gonrails/utils/common"
 )
 
 // BetOrder - 这里用来收集用户对某个 Topic 的 某些 Option 发生概率的判断，作为预测模型一个重要维度

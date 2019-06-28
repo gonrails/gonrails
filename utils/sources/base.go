@@ -1,7 +1,7 @@
 package sources
 
 import (
-	"kalista/utils/sources/rabbits"
+	"github.com/one-hole/gonrails/utils/sources/rabbits"
 )
 
 func init() {

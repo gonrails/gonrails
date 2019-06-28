@@ -1,9 +1,9 @@
 package reports
 
 import (
-	"kalista/controllers/admin/reports/revenues"
-	"kalista/controllers/admin/reports/statistics"
-	"kalista/controllers/admin/reports/topics"
+	"github.com/one-hole/gonrails/controllers/admin/reports/revenues"
+	"github.com/one-hole/gonrails/controllers/admin/reports/statistics"
+	"github.com/one-hole/gonrails/controllers/admin/reports/topics"
 
 	"github.com/gin-gonic/gin"
 )

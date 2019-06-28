@@ -1,12 +1,10 @@
 package tenants
 
 import (
-	"kalista/models"
-	"kalista/serializers"
-
-	. "kalista/serializers/tenant"
-
 	"github.com/gin-gonic/gin"
+	"github.com/one-hole/gonrails/models"
+	"github.com/one-hole/gonrails/serializers"
+	. "github.com/one-hole/gonrails/serializers/tenant"
 )
 
 func Show(ctx *gin.Context) {

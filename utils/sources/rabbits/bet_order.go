@@ -9,7 +9,8 @@ package rabbits
 
 import (
 	"encoding/json"
-	"kalista/utils/common"
+
+	"github.com/one-hole/gonrails/utils/common"
 )
 
 const (

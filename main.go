@@ -1,18 +1,11 @@
 package main
 
 import (
-	_ "kalista/config"
-	"kalista/routers"
-	_ "kalista/utils/sources"
-)
-
-var (
-	forever = make(chan bool)
+	_ "github.com/one-hole/gonrails/config"
+	"github.com/one-hole/gonrails/routers"
+	_ "github.com/one-hole/gonrails/utils/sources"
 )
 
 func main() {
-	// console.Run()
 	routers.Start()
-
-	<-forever
 }

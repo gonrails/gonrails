@@ -8,13 +8,13 @@ Email:  zengtao@risewinter.com
 package statistics
 
 import (
-	"kalista/controllers"
-	"kalista/models"
-	"kalista/serializers"
-	"kalista/serializers/report"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
+	"github.com/one-hole/gonrails/controllers"
+	"github.com/one-hole/gonrails/models"
+	"github.com/one-hole/gonrails/serializers"
+	"github.com/one-hole/gonrails/serializers/report"
 )
 
 func Index(ctx *gin.Context) {

@@ -9,8 +9,8 @@ package rabbits
 
 import (
 	"fmt"
-	"kalista/config"
 
+	"github.com/one-hole/gonrails/config"
 	"github.com/streadway/amqp"
 )
 

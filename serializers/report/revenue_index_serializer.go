@@ -1,8 +1,7 @@
 package report
 
 import (
-	"kalista/models"
-
+	"github.com/one-hole/gonrails/models"
 	"github.com/w-zengtao/struct2json"
 )
 
