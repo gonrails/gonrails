@@ -1,0 +1,16 @@
+http:
+  port: 8080
+  readtimeout: 20
+  writetimeout: 20
+components:
+  MySQL: true
+  Redis: true
+  RabbitMQ: true
+nodes:
+  Role: master
+
+#nodes:
+#  Role: slave
+#  MasterHost: 127.0.0.1:8080
+
+# if you do not want to use RabbitMQ : set it false

@@ -10,10 +10,23 @@ import (
 
 var (
 	config *viper.Viper
+	app    *viper.Viper
 	MySQL  *mySQL
 	Redis  *redis
 	Rabbit *rabbit
 )
+
+type http struct {
+	Port         string
+	ReadTimeOut  int
+	WriteTimeOut int
+}
+
+type components struct {
+	MySQL  bool
+	Redis  bool
+	Rabbit bool
+}
 
 type mySQL struct {
 	Host        string
