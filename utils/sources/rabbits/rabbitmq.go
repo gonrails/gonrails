@@ -32,8 +32,8 @@ func theInstance() *rabbitMQSource {
 }
 
 func RunRabbit() {
-	go runBetOrder()
-	go orderHandle()
+	// go runBetOrder()
+	// go orderHandle()
 }
 
 func newInstance() *rabbitMQSource {

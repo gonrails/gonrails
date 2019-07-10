@@ -41,16 +41,11 @@ func configureMySQL(db *gorm.DB) {
 	db.DB().SetConnMaxLifetime(time.Minute * 1)
 }
 
-func Close() {
-	db.Close()
-}
-
 func DB() *gorm.DB {
 	return db
 }
 
 func init() {
-
 	db = open(
 		config.MySQL.Host,
 		config.MySQL.Port,
@@ -58,12 +53,4 @@ func init() {
 		config.MySQL.Password,
 		config.MySQL.Name,
 	)
-
-	// db.AutoMigrate(&Game{})
-	// db.AutoMigrate(&ScoreDetail{})
-	// db.AutoMigrate(&BetOrder{})
-	// db.AutoMigrate(&BetOrderAddition{})
-	// db.AutoMigrate(&Tenant{})
-	// db.AutoMigrate(&RevenueReport{})
-	// db.AutoMigrate(&StatisticReports{})
 }

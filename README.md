@@ -1,4 +1,4 @@
-[Kalista](https://github.com/one-hole/kalista) 是基于 [Gin](https://github.com/gin-gonic/gin) 改造的后端 MVC 开发框架
+[Gonrails](https://github.com/one-hole/gonrails) 是基于 [Gin](https://github.com/gin-gonic/gin) 改造的后端 MVC 开发框架
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/one-hole/kalista)](https://goreportcard.com/report/github.com/one-hole/kalista)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
@@ -11,6 +11,11 @@
 
   * 更好的错误输出（也就是 API 交互调用者的错误代码）
   * 分布式，服务的注册、发现，请求分发（master - slave）。
+  
+  
+#### Cli 工具
+
+  * [gonrails-cli](https://github.com/one-hole/gonrails-cli)
 
 ### 如何启动项目:
 

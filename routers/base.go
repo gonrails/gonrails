@@ -5,9 +5,6 @@ import (
 	"os"
 	"time"
 
-	"github.com/one-hole/gonrails/routers/admin"
-	"github.com/one-hole/gonrails/routers/outer"
-
 	"github.com/gin-gonic/gin"
 )
 
@@ -26,10 +23,9 @@ func Start() {
 func routers() *gin.Engine {
 	gin.SetMode(os.Getenv("GO_ENV"))
 	router := gin.Default()
-	root := router.Group("")
+	router.Group("")
 	{
-		outer.ApplyRoutes(root)
-		admin.ApplyRoutes(root)
+
 	}
 	return router
 }
