@@ -11,6 +11,11 @@
 
   * 更好的错误输出（也就是 API 交互调用者的错误代码）
   * 分布式，服务的注册、发现，请求分发（master - slave）。
+  * 该项目最终的形态应该是一个插件类型的项目、提供工具函数、提供通用方法。辅助 Gonrails-cli 项目
+  
+  比如:
+  
+  import "github.com/one-hole/gonrails/cluster" 这个包、就能启用集群（主从）的组件
   
   
 #### Cli 工具
