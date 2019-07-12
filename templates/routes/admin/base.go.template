@@ -1,0 +1,13 @@
+package admin
+
+import (
+	"github.com/gin-gonic/gin"
+	"{{.ModuleName}}/controllers/home"
+)
+
+func ApplyRoutes(router *gin.RouterGroup) {
+	admin := router.Group("/admin")
+	{
+	    admin.GET("/home", home.Index)
+	}
+}

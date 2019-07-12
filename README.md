@@ -9,15 +9,16 @@
 
 #### 下一步即将要集成的事情
 
+  * 将 gonrails-cli 项目集成到本项目里面来
   * 更好的错误输出（也就是 API 交互调用者的错误代码）
   * 分布式，服务的注册、发现，请求分发（master - slave）。
   * 该项目最终的形态应该是一个插件类型的项目、提供工具函数、提供通用方法。辅助 Gonrails-cli 项目
-  
+
   比如:
-  
+
   import "github.com/one-hole/gonrails/cluster" 这个包、就能启用集群（主从）的组件
-  
-  
+
+
 #### Cli 工具
 
   * [gonrails-cli](https://github.com/one-hole/gonrails-cli)
@@ -25,12 +26,12 @@
 ### 如何启动项目:
 
   #### Development
-  
+
   ```shell
   GO_ENV=debug go run main.go
   ```
   #### Production
-  
+
   ```shell
   GO_ENV=release ./kalista
   ```
@@ -40,7 +41,7 @@
 
   * 编辑 config/config.yml 确保可用
   * 确认 数据库、Redis、消息中间件等服务可用（如果不想用、可以在[相应的地方](https://github.com/one-hole/kalista/blob/master/utils/sources/base.go)注释掉）
-    
+
     ```go
     package sources
 
@@ -87,10 +88,10 @@
   ```
 
 
-#### [Config](https://github.com/one-hole/kalista/tree/master/config) 
+#### [Config](https://github.com/one-hole/kalista/tree/master/config)
 
   config 目录（包）主要用来存放配置文件、我遵循 Gin 的 Mode 设置了 `debug` 和 `release` 两个模式
-  
+
   sample 如下
 
   ```yml
@@ -168,7 +169,7 @@
 #### [Routers](https://github.com/one-hole/kalista/tree/master/routers)
   * 配置、启动 Gin & HTTP 相关参数
   * 路由、以及相关函数映射（也就是路由映射到资源的 Index | Create | Update | Delete | Show 之类的 Rest 行为上）
-    
+
     示例 - [https://github.com/one-hole/kalista/blob/master/routers/admin/base.go](https://github.com/one-hole/kalista/blob/master/routers/admin/base.go)
     ```go
     package admin
@@ -200,7 +201,7 @@
   * 在 Restful 的世界里，我们对单个资源进行操作 (Show, Update, Post, Delete)、或者对多个资源集合操作 (Index)
 
     下面给出一个目录示例:
-    
+
     ```
     ├── admin
     │   ├── base.go
@@ -225,7 +226,7 @@
   * [helper.go](https://github.com/one-hole/kalista/blob/master/controllers/helper.go) 这里会存放一些通用的方法、比如获取当前的分页、比如把 Query 转化成 Map 的一些通用方法
 
 #### [Serializers](https://github.com/one-hole/kalista/tree/master/serializers) 这里也就是我们的 View 层
-  
+
   * Serializers 目录（包）主要存储我们即将结构化输出的序列化的结构体
   * 定义了两个方法分别用来序列化单个对象 和 序列化集合对象（这两个方法无需改动）
 
@@ -234,7 +235,7 @@
       return s.Serialize(v)
     }
     ```
-    
+
     ```go
     func CollectionSerializer(s Serializer, vs interface{}) ([]map[string]interface{}, error) {
 
@@ -260,7 +261,7 @@
       Serialize(v interface{}) map[string]interface{}
     }
     ```
-  * 在这里我提供了一个组件 [Struct2Json](https://github.com/w-zengtao/struct2json) 来帮助我们直接把嵌套的对象 转化成 map[string]interface{} 
+  * 在这里我提供了一个组件 [Struct2Json](https://github.com/w-zengtao/struct2json) 来帮助我们直接把嵌套的对象 转化成 map[string]interface{}
 
     使用案例 - [statistic_index_serializer.go](https://github.com/one-hole/kalista/blob/master/serializers/report/statistic_index_serializer.go)
 

@@ -17,4 +17,5 @@ logs/*.log
 *.test
 *.out
 
+watermelon/
 kalista

@@ -1,11 +1,32 @@
 package main
 
 import (
-	_ "github.com/one-hole/gonrails/config"
-	"github.com/one-hole/gonrails/routers"
-	_ "github.com/one-hole/gonrails/utils/sources"
+	"flag"
+	"os"
+
+	"github.com/one-hole/gonrails/cmds"
 )
 
 func main() {
-	routers.Start()
+
+	flag.Parse()
+	args := flag.Args()
+
+	if len(args) < 1 {
+		cmds.Useage()
+		os.Exit(2)
+	}
+
+	if "new" == args[0] {
+		cmds.New(args[1])
+	}
+
+	if "help" == args[0] {
+		cmds.Useage()
+		return
+	}
+
+	if "generate" == args[0] {
+		cmds.Generate(args)
+	}
 }
