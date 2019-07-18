@@ -10,7 +10,7 @@ import (
 File :  params.go
 Author: w-zengtao
 Email:  so.zengtao@gmail.com
-Desc:   这里提供 Controller 的一些 Helper 方法
+Desc:   这里提供 Controller 处理 Request 参数的一些 Helper 方法
 */
 
 /*QueryToMap makes url query params to map[string]string
@@ -44,11 +44,17 @@ func queryToMap(query url.Values) map[string]string {
 3. Form Params
 4. URL Params
 */
-func Params(ctx *gin.Context) map[string]interface{} {
+func Params(ctx *gin.Context) map[string]string {
 	return params(ctx)
 }
 
-func params(ctx *gin.Context) map[string]interface{} {
-	return nil
+func params(ctx *gin.Context) map[string]string {
+	querys := queryToMap(ctx.Request.URL.Query())
+	return querys
 }
-\
+
+func merge(sourceMap, targetMap map[string]string) {
+	for k, v := range targetMap {
+		sourceMap[k] = v
+	}
+}

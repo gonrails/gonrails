@@ -1,0 +1,5 @@
+package cmds
+
+func Version() {
+
+}
