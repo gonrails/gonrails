@@ -1,3 +1,4 @@
+
 ### Get Start
 
 #### 0. Install
@@ -11,7 +12,7 @@
 #### 2. Project Overview
 
 * 2.0 Set Configurations
-    
+
     * Open and edit file __config/config.yml__
     * Configure _Database_
     * Configure _Redis_
@@ -27,7 +28,7 @@
     * `curl http://localhost:8080/admin/home`
     * `curl http://localhost:8080/books/1`
     * more infos at [controller docs]()
-    
+
 * 2.3 Directory (including default examples)
 
     ```
