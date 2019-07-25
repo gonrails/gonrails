@@ -52,4 +52,4 @@ nodes:
   MasterHost: 127.0.0.1:8080
 ```
 
-We controller all behaviors in `config.go`. Obviously, you can change whatever you want to.
+We controls all behaviors in `config.go`. Obviously, you can change whatever you want to.

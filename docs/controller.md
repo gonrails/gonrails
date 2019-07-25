@@ -2,6 +2,7 @@
 
   * Package `controllers` stores the implementations to handler request actions
   * We handler single `resource` or a collection of `resources` in __Restful__ world
+  * `controller` stands for `MVC's C`
 
 ---
 
@@ -117,15 +118,34 @@
   4. Sample Response
 
   ```json
-  {
-    "data": {
-      "id": 1,
-      "name": "Gonrails Demo"
+    {
+      "data": {
+        "id": 1,
+        "name": "Gonrails Demo"
+      }
     }
-  }
   ```
   5. more infos about package `serializers` click [here](https://github.com/one-hole/gonrails/blob/master/serializers/base.go)
 
   6. more infos about package `struct2json` click [here](http://github.com/w-zengtao/struct2json)
 
+#### 4. `GET admin/home`
+
+  1. `curl http://localhost:8080/admin/home`
+  2. file: `routes/admin/base.go`
+  3. file: `controller/home/index.go`
+  4. I want to show that you can map a `PATH` to any `Action (Controller function)` if you wish
+
 ### Helper Functions
+
+* `func Params(ctx *gin.Context) map[string]string`
+  - get all params (Query、Body、PostForm、URL Params) as map[string]string
+
+* `func QueryToMap(query url.Values) map[string]string`
+  - get all query params as map[string]string
+
+* `func CurrentPage(ctx *gin.Context) int`
+  - get current page for paginate, default value is 1
+
+* `func Page(db *gorm.DB, pageNum int) *gorm.DB`
+  - paginate method for *gorm - SQL/Offset
