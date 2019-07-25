@@ -30,3 +30,8 @@
   * `gonrails generate controller admin/users index update show`
 
 ##### 3.2
+
+### 4. Docs
+
+  * original docs were [here](https://github.com/one-hole/gonrails/blob/master/README_BACK.md)
+  * new docs were [here](https://github.com/one-hole/gonrails/blob/master/docs/home.md)

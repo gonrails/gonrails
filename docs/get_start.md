@@ -1,3 +1,4 @@
+
 ### Get Start
 
 #### 0. Install
@@ -11,7 +12,7 @@
 #### 2. Project Overview
 
 * 2.0 Set Configurations
-    
+
     * Open and edit file __config/config.yml__
     * Configure _Database_
     * Configure _Redis_
@@ -26,8 +27,8 @@
     * `curl http://localhost:8080/home`
     * `curl http://localhost:8080/admin/home`
     * `curl http://localhost:8080/books/1`
-    * more infos at [controller docs]()
-    
+    * more infos at [controller docs](https://github.com/one-hole/gonrails/blob/docs/docs/controller.md)
+
 * 2.3 Directory (including default examples)
 
     ```
@@ -58,7 +59,7 @@
     ```
 
 * 2.4 Dockerfile
-    * TODO
+    * [example dockerfile](https://github.com/one-hole/gonrails/blob/docs/Dockerfile)
 
 * 2.5 Logs
     * TODO

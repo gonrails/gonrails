@@ -20,8 +20,8 @@ url: https://yourdomain?a=a&b=b
 returns:
 
 map[string]string{
-		"a": "a",
-		"b": "b",
+  "a": "a",
+  "b": "b",
 }
 */
 func QueryToMap(query url.Values) map[string]string {
