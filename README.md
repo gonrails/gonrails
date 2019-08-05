@@ -1,6 +1,8 @@
 [Gonrails](https://github.com/one-hole/gonrails) 是基于 [Gin](https://github.com/gin-gonic/gin) 改造的后端 MVC 开发框架
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/one-hole/kalista)](https://goreportcard.com/report/github.com/one-hole/kalista)
+[![Go Report Card](https://goreportcard.com/badge/github.com/one-hole/gonrails)](https://goreportcard.com/report/github.com/one-hole/gonrails)
+[![codebeat badge](https://codebeat.co/badges/55d43777-aa68-4030-a894-f065a82c97a7)](https://codebeat.co/projects/github-com-one-hole-gonrails-master)
+[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/one-hole/gonrails)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 --------
 
