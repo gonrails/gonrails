@@ -24,6 +24,7 @@ func New(projectName string) {
 	new.TouchRoute(projectName)
 	new.TouchController(projectName)
 	new.TouchSerializer(projectName)
+	new.TouchDockerfile(projectName)
 	new.InitMod(projectName)
 	new.InitGit(projectName)
 }
