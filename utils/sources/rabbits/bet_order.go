@@ -11,7 +11,7 @@ package rabbits
 // import (
 // 	"encoding/json"
 //
-// 	"github.com/one-hole/gonrails/utils/common"
+// 	"github.com/gonrails/gonrails/utils/common"
 // )
 //
 // const (

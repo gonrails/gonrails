@@ -1,8 +1,8 @@
-[Gonrails](https://github.com/one-hole/gonrails) 是基于 [Gin](https://github.com/gin-gonic/gin) 改造的后端 MVC 开发框架
+[Gonrails](https://github.com/gonrails/gonrails) 是基于 [Gin](https://github.com/gin-gonic/gin) 改造的后端 MVC 开发框架
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/one-hole/gonrails)](https://goreportcard.com/report/github.com/one-hole/gonrails)
-[![codebeat badge](https://codebeat.co/badges/55d43777-aa68-4030-a894-f065a82c97a7)](https://codebeat.co/projects/github-com-one-hole-gonrails-master)
-[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/one-hole/gonrails)
+[![Go Report Card](https://goreportcard.com/badge/github.com/gonrails/gonrails)](https://goreportcard.com/report/github.com/gonrails/gonrails)
+[![codebeat badge](https://codebeat.co/badges/55d43777-aa68-4030-a894-f065a82c97a7)](https://codebeat.co/projects/github-com-gonrails-gonrails-master)
+[![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/gonrails/gonrails)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 --------
 
@@ -11,7 +11,7 @@
 
 ### 1. Install
 
-`go get -u  github.com/one-hole/gonrails`
+`go get -u  github.com/gonrails/gonrails`
 
 ### 2. New
 
@@ -19,7 +19,7 @@
 
 
  * so if I want to create a project named __kalista__ , I just run command __`gonrails new kalista`__
- * the docs of the created project was in __[here](https://github.com/one-hole/gonrails)__
+ * the docs of the created project was in __[here](https://github.com/gonrails/gonrails)__
 
 ### 3. Generate
 
@@ -35,5 +35,5 @@
 
 ### 4. Docs
 
-  * original docs were [here](https://github.com/one-hole/gonrails/blob/master/README_BACK.md)
-  * new docs were [here](https://github.com/one-hole/gonrails/blob/master/docs/home.md)
+  * original docs were [here](https://github.com/gonrails/gonrails/blob/master/README_BACK.md)
+  * new docs were [here](https://github.com/gonrails/gonrails/blob/master/docs/home.md)

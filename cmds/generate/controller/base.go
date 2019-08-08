@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/one-hole/gonrails/cmds/helper"
+	"github.com/gonrails/gonrails/cmds/helper"
 )
 
 var validActions = map[string]bool{

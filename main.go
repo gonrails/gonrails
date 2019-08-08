@@ -4,7 +4,7 @@ import (
 	"flag"
 	"os"
 
-	"github.com/one-hole/gonrails/cmds"
+	"github.com/gonrails/gonrails/cmds"
 )
 
 func main() {

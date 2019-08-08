@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/one-hole/gonrails/cmds/helper"
+	"github.com/gonrails/gonrails/cmds/helper"
 )
 
 // TouchRoute -

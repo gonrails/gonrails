@@ -3,7 +3,7 @@ package cmds
 import (
 	"log"
 
-	"github.com/one-hole/gonrails/cmds/generate/controller"
+	"github.com/gonrails/gonrails/cmds/generate/controller"
 )
 
 // Generate - for command generate

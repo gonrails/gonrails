@@ -3,7 +3,7 @@ package new
 import (
 	"fmt"
 
-	"github.com/one-hole/gonrails/cmds/helper"
+	"github.com/gonrails/gonrails/cmds/helper"
 )
 
 // TouchConfig - generate config dir and files

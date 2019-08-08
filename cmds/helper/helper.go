@@ -15,6 +15,6 @@ func init() {
 	if "true" == os.Getenv("DEV") {
 		ProjectPath, _ = os.Getwd()
 	} else {
-		ProjectPath = fmt.Sprintf("%s/src/github.com/one-hole/gonrails", os.Getenv("GOPATH"))
+		ProjectPath = fmt.Sprintf("%s/src/github.com/gonrails/gonrails", os.Getenv("GOPATH"))
 	}
 }

@@ -2,7 +2,7 @@ package new
 
 import (
 	"fmt"
-	"github.com/one-hole/gonrails/cmds/helper"
+	"github.com/gonrails/gonrails/cmds/helper"
 )
 
 func TouchDockerfile(moduleName string) {

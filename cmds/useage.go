@@ -1,7 +1,7 @@
 package cmds
 
 import (
-	"github.com/one-hole/gonrails/cmds/helper"
+	"github.com/gonrails/gonrails/cmds/helper"
 )
 
 // Help - gonrails-cli help

@@ -5,7 +5,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/one-hole/gonrails/cmds/new"
+	"github.com/gonrails/gonrails/cmds/new"
 )
 
 // New - Creates a new gonrails project

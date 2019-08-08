@@ -1,7 +1,7 @@
 package sources
 
 import (
-	"github.com/one-hole/gonrails/utils/sources/rabbits"
+	"github.com/gonrails/gonrails/utils/sources/rabbits"
 )
 
 func init() {

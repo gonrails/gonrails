@@ -6,7 +6,7 @@ import (
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
-	"github.com/one-hole/gonrails/utils/common"
+	"github.com/gonrails/gonrails/utils/common"
 )
 
 // Open open a mysql database to use

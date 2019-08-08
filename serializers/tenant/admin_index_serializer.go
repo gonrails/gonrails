@@ -8,7 +8,7 @@ Email:  zengtao@risewinter.com
 package tenant
 
 import (
-	"github.com/one-hole/gonrails/models"
+	"github.com/gonrails/gonrails/models"
 	"github.com/w-zengtao/struct2json"
 )
 

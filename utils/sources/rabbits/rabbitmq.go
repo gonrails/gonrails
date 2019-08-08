@@ -10,7 +10,7 @@ package rabbits
 import (
 	"fmt"
 
-	"github.com/one-hole/gonrails/config"
+	"github.com/gonrails/gonrails/config"
 	"github.com/streadway/amqp"
 )
 

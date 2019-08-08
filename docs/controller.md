@@ -1,4 +1,4 @@
-### [controllers](https://github.com/one-hole/kalista/tree/master/controllers)
+### [controllers](https://github.com/gonrails/kalista/tree/master/controllers)
 
   * Package `controllers` stores the implementations to handler request actions
   * We handler single `resource` or a collection of `resources` in __Restful__ world
@@ -74,7 +74,7 @@
   	serializer "kalista/serializers"
 
   	"github.com/gin-gonic/gin"
-  	"github.com/one-hole/gonrails/serializers"
+  	"github.com/gonrails/gonrails/serializers"
   )
 
   func Show(ctx *gin.Context) {
@@ -125,7 +125,7 @@
       }
     }
   ```
-  5. more infos about package `serializers` click [here](https://github.com/one-hole/gonrails/blob/master/serializers/base.go)
+  5. more infos about package `serializers` click [here](https://github.com/gonrails/gonrails/blob/master/serializers/base.go)
 
   6. more infos about package `struct2json` click [here](http://github.com/w-zengtao/struct2json)
 

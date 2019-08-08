@@ -2,7 +2,7 @@ package rabbits
 
 //
 // import (
-// 	"github.com/one-hole/gonrails/models"
+// 	"github.com/gonrails/gonrails/models"
 // )
 //
 // func orderHandle() {
