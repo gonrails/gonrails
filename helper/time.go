@@ -1,7 +1,6 @@
 package helper
 
 import (
-	"log"
 	"time"
 )
 
@@ -14,7 +13,7 @@ const (
 )
 
 
-func TimeWithLocation(layout, name string, value string) time.Time {
+func TimeWithLocation(layout, name string, value string) (time.Time, error) {
 	if "" == name {
 		name = "Asia/Shanghai"
 	}
@@ -22,14 +21,14 @@ func TimeWithLocation(layout, name string, value string) time.Time {
 	location, err := time.LoadLocation(name)
 
 	if err != nil {
-		log.Panic(err)
+		return time.Now(), err
 	}
 
 	t, err := time.ParseInLocation(layout, value, location)
 
 	if err != nil {
-		log.Panic(err)
+		return time.Now(), err
 	}
 
-	return t
+	return t, nil
 }
