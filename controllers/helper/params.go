@@ -49,8 +49,8 @@ func Params(ctx *gin.Context) map[string]string {
 }
 
 func params(ctx *gin.Context) map[string]string {
-	querys := queryToMap(ctx.Request.URL.Query())
-	return querys
+	queries := queryToMap(ctx.Request.URL.Query())
+	return queries
 }
 
 func merge(sourceMap, targetMap map[string]string) {
