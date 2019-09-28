@@ -28,6 +28,7 @@ var useageTemplate = `{{ "Gonrails" | bold }} is the command line tools for your
 
 		'gonrails generate model user'
 		'gonrails generate controller users index show update delete create'
+		'gonrails generate migration createUsers'
 `
 
 func Useage() {

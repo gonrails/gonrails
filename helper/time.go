@@ -7,11 +7,11 @@ import (
 const (
 	DateFormat             = "2006-01-02"
 	DateTimeFormat         = "2006-01-02 15:04:05"
+	StampLayout            = "20060102150405.999"
 	DateTimeFormatWithZone = time.RFC3339
 	DefaultPageSize        = 10
 	DefaultPage            = 1
 )
-
 
 func TimeWithLocation(layout, name string, value string) (time.Time, error) {
 	if "" == name {
