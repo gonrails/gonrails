@@ -8,33 +8,33 @@ import (
 )
 
 // TouchController - generate controller example
-func TouchController(moduleName string) {
+func TouchController(projectName string) {
 	helper.CreateFile(
-		fmt.Sprintf("%s/%s/controllers/base.go", helper.Pwd, moduleName),
-		fmt.Sprintf("%s/templates/controllers/base.go.template", helper.ProjectPath),
+		fmt.Sprintf("%s/%s/controllers/base.go", helper.ProjectPath, projectName),
+		fmt.Sprintf("%s/controllers/base.go.template", helper.TemplatePath),
 		nil,
 	)
 
-	_ = os.Mkdir(fmt.Sprintf("%s/controllers/%s", moduleName, "home"), os.ModePerm)
-	_ = os.Mkdir(fmt.Sprintf("%s/controllers/%s", moduleName, "books"), os.ModePerm)
+	_ = os.Mkdir(fmt.Sprintf("%s/controllers/%s", projectName, "home"), os.ModePerm)
+	_ = os.Mkdir(fmt.Sprintf("%s/controllers/%s", projectName, "books"), os.ModePerm)
 
 	helper.CreateFile(
-		fmt.Sprintf("%s/%s/controllers/home/index.go", helper.Pwd, moduleName),
-		fmt.Sprintf("%s/templates/controllers/home/index.go.template", helper.ProjectPath),
-		nil,
-	)
-
-	helper.CreateFile(
-		fmt.Sprintf("%s/%s/controllers/books/index.go", helper.Pwd, moduleName),
-		fmt.Sprintf("%s/templates/controllers/books/index.go", helper.ProjectPath),
+		fmt.Sprintf("%s/%s/controllers/home/index.go", helper.ProjectPath, projectName),
+		fmt.Sprintf("%s/controllers/home/index.go.template", helper.TemplatePath),
 		nil,
 	)
 
 	helper.CreateFile(
-		fmt.Sprintf("%s/%s/controllers/books/show.go", helper.Pwd, moduleName),
-		fmt.Sprintf("%s/templates/controllers/books/show.go.template", helper.ProjectPath),
+		fmt.Sprintf("%s/%s/controllers/books/index.go", helper.ProjectPath, projectName),
+		fmt.Sprintf("%s/controllers/books/index.go", helper.TemplatePath),
+		nil,
+	)
+
+	helper.CreateFile(
+		fmt.Sprintf("%s/%s/controllers/books/show.go", helper.ProjectPath, projectName),
+		fmt.Sprintf("%s/controllers/books/show.go.template", helper.TemplatePath),
 		ventory{
-			ModuleName: moduleName,
+			ModuleName: projectName,
 		},
 	)
 }

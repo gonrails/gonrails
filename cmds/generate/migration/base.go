@@ -27,7 +27,7 @@ var (
 
 func init() {
 	if "true" == os.Getenv("DEV") {
-		basePath = fmt.Sprintf("%s/watermelon", helper.Pwd)
+		basePath = fmt.Sprintf("%s/watermelon", helper.ProjectPath)
 	} else {
 		basePath, _ = os.Getwd()
 	}
@@ -47,7 +47,7 @@ func Exec(args []string) {
 	}
 
 	migrateID := timeStr()
-	migrateName := fmt.Sprintf("%s%s", args[2], "Migration")
+	migrateName := fmt.Sprintf("%s%s", args[2], "_migration")
 
 	fileName := fmt.Sprintf("%s_%s.go", migrateID, args[2])
 	filePath := fmt.Sprintf("%s/models/migrations/%s", basePath, fileName)

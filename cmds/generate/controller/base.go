@@ -25,7 +25,7 @@ type ventory struct {
 
 func init() {
 	if "true" == os.Getenv("DEV") {
-		basePath = fmt.Sprintf("%s/watermelon", helper.Pwd)
+		basePath = fmt.Sprintf("%s/watermelon", helper.ProjectPath)
 	} else {
 		basePath, _ = os.Getwd() // 非开发环境、那么这里应该是项目的根目录
 	}
@@ -45,12 +45,11 @@ func Exec(args []string) {
 func mkdir(path string) {
 	var dirPath string
 	if os.Getenv("DEV") == "true" {
-		dirPath = fmt.Sprintf("%s%s/%s", helper.Pwd, "/watermelon/controllers", path)
+		dirPath = fmt.Sprintf("%s%s/%s", helper.ProjectPath, "/watermelon/controllers", path)
 
 		log.Println(dirPath)
 	} else {
-		tmpPath, _ := os.Getwd() // 这个命令我希望是在项目的目录里面执行
-		dirPath = fmt.Sprintf("%s%s/%s", tmpPath, "/controllers", path)
+		dirPath = fmt.Sprintf("%s%s/%s", basePath, "/controllers", path)
 	}
 
 	err := helper.FindOrCreateDir(dirPath)

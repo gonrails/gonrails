@@ -12,22 +12,22 @@ import (
 1. routes/base.go
 2. routes/admin/base.go
 */
-func TouchRoute(moduleName string) {
+func TouchRoute(projectName string) {
 	helper.CreateFile(
-		fmt.Sprintf("%s/%s/routes/base.go", helper.Pwd, moduleName),
-		fmt.Sprintf("%s/templates/routes/base.go.template", helper.ProjectPath),
+		fmt.Sprintf("%s/%s/routes/base.go", helper.ProjectPath, projectName),
+		fmt.Sprintf("%s/routes/base.go.template", helper.TemplatePath),
 		ventory{
-			ModuleName: moduleName,
+			ModuleName: projectName,
 		},
 	)
 
-	_ = os.Mkdir(fmt.Sprintf("%s/routes/%s", moduleName, "admin"), os.ModePerm)
+	_ = os.Mkdir(fmt.Sprintf("%s/routes/%s", projectName, "admin"), os.ModePerm)
 
 	helper.CreateFile(
-		fmt.Sprintf("%s/%s/routes/admin/base.go", helper.Pwd, moduleName),
-		fmt.Sprintf("%s/templates/routes/admin/base.go.template", helper.ProjectPath),
+		fmt.Sprintf("%s/%s/routes/admin/base.go", helper.ProjectPath, projectName),
+		fmt.Sprintf("%s/routes/admin/base.go.template", helper.TemplatePath),
 		ventory{
-			ModuleName: moduleName,
+			ModuleName: projectName,
 		},
 	)
 }

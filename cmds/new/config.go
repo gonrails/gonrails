@@ -7,22 +7,22 @@ import (
 )
 
 // TouchConfig - generate config dir and files
-func TouchConfig(moduleName string) {
+func TouchConfig(projectName string) {
 	helper.CreateFile(
-		fmt.Sprintf("%s/%s/config/config.go", helper.Pwd, moduleName),
-		fmt.Sprintf("%s/templates/config/config.go.template", helper.ProjectPath),
+		fmt.Sprintf("%s/%s/config/config.go", helper.ProjectPath, projectName),
+		fmt.Sprintf("%s/config/config.go.template", helper.TemplatePath),
 		nil,
 	)
 
 	helper.CreateFile(
-		fmt.Sprintf("%s/%s/config/app.yml", helper.Pwd, moduleName),
-		fmt.Sprintf("%s/templates/config/app.yml", helper.ProjectPath),
+		fmt.Sprintf("%s/%s/config/app.yml", helper.ProjectPath, projectName),
+		fmt.Sprintf("%s/config/app.yml", helper.TemplatePath),
 		nil,
 	)
 
 	helper.CreateFile(
-		fmt.Sprintf("%s/%s/config/config.yml", helper.Pwd, moduleName),
-		fmt.Sprintf("%s/templates/config/config.yml", helper.ProjectPath),
+		fmt.Sprintf("%s/%s/config/config.yml", helper.ProjectPath, projectName),
+		fmt.Sprintf("%s/config/config.yml", helper.TemplatePath),
 		nil,
 	)
 }

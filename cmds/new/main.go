@@ -11,13 +11,13 @@ type ventory struct {
 }
 
 // TouchMain - generate main.go
-func TouchMain(moduleName string) {
+func TouchMain(projectName string) {
 
 	helper.CreateFile(
-		fmt.Sprintf("%s/%s/main.go", helper.Pwd, moduleName),
-		fmt.Sprintf("%s/templates/main.go.template", helper.ProjectPath),
+		fmt.Sprintf("%s/%s/main.go", helper.ProjectPath, projectName),
+		fmt.Sprintf("%s/main.go.template", helper.TemplatePath),
 		ventory{
-			ModuleName: moduleName,
+			ModuleName: projectName,
 		},
 	)
 }
