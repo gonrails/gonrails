@@ -13,4 +13,4 @@ require (
 	github.com/w-zengtao/struct2json v0.0.0-20190426013937-6e8669a0e211
 )
 
-replace github.com/gonrails/gonrails => /Users/ctao/Developer/Golang/gonrails
+replace github.com/gonrails/gonrails => /Users/zyc/Developer/gonrails/gonrails

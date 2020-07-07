@@ -5,8 +5,8 @@ import (
 	"os"
 )
 
-var ProjectPath string  // 在哪里生成项目代码
-var TemplatePath string // 模版的目录在哪里
+var ProjectPath string  // 生成项目地址
+var TemplatePath string // 模版的目录
 
 func init() {
 	if "true" == os.Getenv("DEV") {

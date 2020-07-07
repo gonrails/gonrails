@@ -2,13 +2,31 @@ package cmds
 
 import (
 	"fmt"
+	"gonrails/cmds/helper"
+	"log"
+	"os"
 
+	"github.com/gonrails/gonrails/cmds/new"
 	"github.com/urfave/cli/v2"
 )
 
 func New(ctx *cli.Context) error {
-	fmt.Println(ctx.Args())
+	name := ctx.Args().First()
+	makeDirs(name)
+
+	new.TouchMain(name)
+
 	return nil
+}
+
+func makeDirs(name string) {
+	log.Printf(helper.Yellow("---> Creating gonrails project named %s ..."), helper.Green(name))
+	_ = os.Mkdir(name, os.ModePerm)
+
+	for _, subDir := range dirs {
+		log.Println(fmt.Sprintf(helper.Blue("------> Making directory: %s/%s"), helper.Green(name), helper.Green(subDir)))
+		_ = os.Mkdir(fmt.Sprintf("%s/%s", name, subDir), os.ModePerm)
+	}
 }
 
 // New - Creates a new gonrails project

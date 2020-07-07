@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"gonrails/cmds"
 	"os"
+
+	"github.com/gonrails/gonrails/cmds"
 
 	"github.com/urfave/cli/v2"
 )
