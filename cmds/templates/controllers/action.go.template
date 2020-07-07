@@ -1,0 +1,9 @@
+package {{.ModuleName}}
+
+
+import (
+  "github.com/gin-gonic/gin"
+)
+
+func {{.ActionName | capitalize}} (ctx *gin.Context) {
+}

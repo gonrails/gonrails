@@ -16,7 +16,7 @@ func TouchRoute(projectName string) {
 	helper.CreateFile(
 		fmt.Sprintf("%s/%s/routes/base.go", helper.ProjectPath, projectName),
 		fmt.Sprintf("%s/routes/base.go.template", helper.TemplatePath),
-		ventory{
+		info{
 			ModuleName: projectName,
 		},
 	)
@@ -26,7 +26,7 @@ func TouchRoute(projectName string) {
 	helper.CreateFile(
 		fmt.Sprintf("%s/%s/routes/admin/base.go", helper.ProjectPath, projectName),
 		fmt.Sprintf("%s/routes/admin/base.go.template", helper.TemplatePath),
-		ventory{
+		info{
 			ModuleName: projectName,
 		},
 	)

@@ -33,7 +33,7 @@ func TouchController(projectName string) {
 	helper.CreateFile(
 		fmt.Sprintf("%s/%s/controllers/books/show.go", helper.ProjectPath, projectName),
 		fmt.Sprintf("%s/controllers/books/show.go.template", helper.TemplatePath),
-		ventory{
+		info{
 			ModuleName: projectName,
 		},
 	)

@@ -20,11 +20,11 @@ func New(ctx *cli.Context) error {
 }
 
 func makeDirs(name string) {
-	log.Printf(helper.Yellow("---> Creating gonrails project named %s ..."), helper.Green(name))
+	log.Printf(helper.Yellow("---> Generating gonrails project named %s ..."), helper.Green(name))
 	_ = os.Mkdir(name, os.ModePerm)
 
 	for _, subDir := range dirs {
-		log.Println(fmt.Sprintf(helper.Blue("------> Making directory: %s/%s"), helper.Green(name), helper.Green(subDir)))
+		log.Println(fmt.Sprintf(helper.Blue("------> Making directory: %s"), fmt.Sprintf(helper.Green("%s/%s"), name, subDir)))
 		_ = os.Mkdir(fmt.Sprintf("%s/%s", name, subDir), os.ModePerm)
 	}
 }

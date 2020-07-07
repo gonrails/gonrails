@@ -10,7 +10,7 @@ func TouchDockerfile(projectName string) {
 	helper.CreateFile(
 		fmt.Sprintf("%s/%s/Dockerfile", helper.ProjectPath, projectName),
 		fmt.Sprintf("%s/Dockerfile.template", helper.TemplatePath),
-		ventory{
+		info{
 			ModuleName: projectName,
 		},
 	)

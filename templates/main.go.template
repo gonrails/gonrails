@@ -1,9 +1,0 @@
-package main
-
-import (
-  "{{.ModuleName}}/routes"
-)
-
-func main() {
-  routes.Start()
-}
