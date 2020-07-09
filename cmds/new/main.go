@@ -11,7 +11,6 @@ type info struct {
 }
 
 func TouchMain(projectName string) {
-
 	helper.CreateFile(
 		fmt.Sprintf("%s/%s/main.go", helper.ProjectPath, projectName),
 		fmt.Sprintf("%s/main.go.tmpl", helper.TemplatePath),

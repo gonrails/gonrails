@@ -10,7 +10,7 @@ import (
 func TouchConfig(projectName string) {
 	helper.CreateFile(
 		fmt.Sprintf("%s/%s/config/config.go", helper.ProjectPath, projectName),
-		fmt.Sprintf("%s/config/config.go.template", helper.TemplatePath),
+		fmt.Sprintf("%s/config/config.go.tmpl", helper.TemplatePath),
 		nil,
 	)
 

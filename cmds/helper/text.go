@@ -6,17 +6,6 @@ import (
 	"text/template"
 )
 
-const (
-	textBlack = iota + 30
-	textRed
-	textGreen
-	textYellow
-	textBlue
-	textPurple
-	textCyan
-	textWhite
-)
-
 func FuncMap() template.FuncMap {
 	return template.FuncMap{
 		"bold":       bold,

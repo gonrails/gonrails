@@ -15,6 +15,7 @@ func New(ctx *cli.Context) error {
 	makeDirs(name)
 
 	new.TouchMain(name)
+	new.TouchConfig(name)
 
 	return nil
 }
