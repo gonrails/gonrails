@@ -2,8 +2,10 @@ package rgin
 
 import (
 	"net/http"
+	"time"
 
 	"github.com/gin-gonic/gin"
+	"github.com/sirupsen/logrus"
 )
 
 type Server struct {
@@ -17,10 +19,23 @@ func newServer() *Server {
 	}
 }
 
+// DefaultServer call newServer with default config
+func DefaultServer() *Server {
+	return newServer()
+}
+
 func (s *Server) Start() error {
+
+	logrus.Println("R Gin Server Starting...")
+
 	s.Server = &http.Server{
-		Handler: s.Router,
+		Handler:        s.Router,
+		Addr:           ":8080",
+		ReadTimeout:    10 * time.Second,
+		WriteTimeout:   10 * time.Second,
+		MaxHeaderBytes: 1 << 20,
 	}
+	s.Server.ListenAndServe()
 	return nil
 }
 
