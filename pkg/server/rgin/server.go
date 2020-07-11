@@ -9,36 +9,47 @@ import (
 )
 
 type Server struct {
-	Router *gin.Engine
-	Server *http.Server
+	router *gin.Engine
+	server *http.Server
 }
 
-func newServer() *Server {
+func newRouter(configuration *routerConfiguration) *gin.Engine {
+	router := gin.Default()
+	router.Use(gin.Recovery())
+	return router
+}
+
+func newServer(config *Configuration) *Server {
+	newRouter := newRouter(config.routerConfiguration)
 	return &Server{
-		Router: gin.Default(),
+		router: newRouter,
+		server: &http.Server{
+			Handler:        newRouter,
+			Addr:           ":8080",
+			ReadTimeout:    10 * time.Second,
+			WriteTimeout:   10 * time.Second,
+			MaxHeaderBytes: 1 << 20,
+		},
 	}
 }
 
+/* -------------------------------- Functions -------------------------------- */
 // DefaultServer call newServer with default config
 func DefaultServer() *Server {
-	return newServer()
+	logrus.Println("RGin Server Initializing...")
+
+	return newServer(defaultConfiguration())
 }
 
+/* -------------------------------- Methods -------------------------------- */
 func (s *Server) Start() error {
+	logrus.Println("RGin Server Starting...")
 
-	logrus.Println("R Gin Server Starting...")
-
-	s.Server = &http.Server{
-		Handler:        s.Router,
-		Addr:           ":8080",
-		ReadTimeout:    10 * time.Second,
-		WriteTimeout:   10 * time.Second,
-		MaxHeaderBytes: 1 << 20,
-	}
-	s.Server.ListenAndServe()
-	return nil
+	return s.server.ListenAndServe()
 }
 
 func (s *Server) Stop() error {
-	return s.Server.Close()
+	logrus.Println("RGin Server Closing...")
+
+	return s.server.Close()
 }
