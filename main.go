@@ -13,7 +13,7 @@ func main() {
 	args := flag.Args()
 
 	if len(args) < 1 {
-		cmds.Useage()
+		cmds.Usage()
 		os.Exit(2)
 	}
 
@@ -22,7 +22,7 @@ func main() {
 	}
 
 	if "help" == args[0] {
-		cmds.Useage()
+		cmds.Usage()
 		return
 	}
 

@@ -1,6 +1,6 @@
 ### Model
 
-* package `models` is the place we communicate between database and business. And it provide an abstraction for golang struct to database table.
+* package `models` is the place where communication between database and business happens. And it bridges golang structs to database tables.
 
 
 #### Helper Functions
