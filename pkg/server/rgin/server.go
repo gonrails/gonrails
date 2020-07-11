@@ -2,7 +2,6 @@ package rgin
 
 import (
 	"net/http"
-	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/sirupsen/logrus"
@@ -25,9 +24,9 @@ func newServer(config *Configuration) *Server {
 		router: newRouter,
 		server: &http.Server{
 			Handler:        newRouter,
-			Addr:           ":8080",
-			ReadTimeout:    10 * time.Second,
-			WriteTimeout:   10 * time.Second,
+			Addr:           config.httpConfiguration.addr,
+			ReadTimeout:    config.httpConfiguration.readTimeout,
+			WriteTimeout:   config.httpConfiguration.writeTimeout,
 			MaxHeaderBytes: 1 << 20,
 		},
 	}

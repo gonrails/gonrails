@@ -1,9 +1,16 @@
 package rgin
 
+import "time"
+
 type routerConfiguration struct {
+	mode           string
+	enableRecovery bool
 }
 
 type httpConfiguration struct {
+	addr         string
+	readTimeout  time.Duration
+	writeTimeout time.Duration
 }
 
 type Configuration struct {
@@ -14,6 +21,10 @@ type Configuration struct {
 func defaultConfiguration() *Configuration {
 	return &Configuration{
 		routerConfiguration: &routerConfiguration{},
-		httpConfiguration:   &httpConfiguration{},
+		httpConfiguration: &httpConfiguration{
+			readTimeout:  10 * time.Second,
+			writeTimeout: 10 * time.Second,
+			addr:         ":8080",
+		},
 	}
 }

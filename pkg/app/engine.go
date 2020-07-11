@@ -20,7 +20,11 @@ func (engine *Engine) startServers() {
 	}
 }
 
-func (engine *Engine) clean() {}
+func (engine *Engine) clean() {
+	for _, server := range engine.servers {
+		server.Stop()
+	}
+}
 
 func (engine *Engine) Serve() {
 	defer engine.clean()
