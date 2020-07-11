@@ -20,16 +20,14 @@ type Configuration struct {
 
 func defaultConfiguration() *Configuration {
 	return &Configuration{
-		routerConfiguration: &routerConfiguration{},
 		httpConfiguration: &httpConfiguration{
 			readTimeout:  10 * time.Second,
 			writeTimeout: 10 * time.Second,
 			addr:         ":8080",
 		},
 		routerConfiguration: &routerConfiguration{
-			mode:        "debug",
+			mode:           "debug",
 			enableRecovery: true,
 		},
-		httpConfiguration: &httpConfiguration{},
 	}
 }
