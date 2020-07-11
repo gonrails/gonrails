@@ -26,5 +26,10 @@ func defaultConfiguration() *Configuration {
 			writeTimeout: 10 * time.Second,
 			addr:         ":8080",
 		},
+		routerConfiguration: &routerConfiguration{
+			mode:        "debug",
+			enableRecovery: true,
+		},
+		httpConfiguration: &httpConfiguration{},
 	}
 }
