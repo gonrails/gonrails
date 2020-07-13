@@ -1,6 +1,6 @@
 ### Serializer
 
-* directory `serializers` is the place which help us organize `Response` for request
+* directory `serializers` helps us marshal request into desired go types.
 
 #### package serializer
 

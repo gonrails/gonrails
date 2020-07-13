@@ -1,7 +1,7 @@
 ### [controllers](https://github.com/gonrails/kalista/tree/master/controllers)
 
   * Package `controllers` stores the implementations to handler request actions
-  * We handler single `resource` or a collection of `resources` in __Restful__ world
+  * We handle single `resource` or a collection of `resources` in __Restful__ world
   * `controller` stands for `MVC's C`
 
 ---

@@ -6,9 +6,9 @@ import (
 
 // Help - gonrails-cli help
 
-var useageTemplate = `{{ "Gonrails" | bold }} is the command line tools for your Gonrails Web Application.
+var usageTemplate = `{{ "Gonrails" | bold }} is the command line tools for your Gonrails Web Application.
 
-{{"USEAGE" | bold | red}}
+{{"USAGE" | bold | red}}
 
 	gonrails command [arguments]
 
@@ -31,8 +31,8 @@ var useageTemplate = `{{ "Gonrails" | bold }} is the command line tools for your
 		'gonrails generate migration createUsers'
 `
 
-func Useage() {
-	helper.Tmpl(useageTemplate, nil)
+func Usage() {
+	helper.Tmpl(usageTemplate, nil)
 }
 
 /*
