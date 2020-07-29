@@ -6,12 +6,10 @@ type Engine struct {
 	servers []server.Server
 }
 
-func (engine *Engine) Initialize() {
-	engine.servers = make([]server.Server, 0)
-}
-
-func (engine *Engine) AddServer(s server.Server) {
-	engine.servers = append(engine.servers, s)
+func DefaultEngine() *Engine {
+	engine := &Engine{}
+	engine.initialize()
+	return engine
 }
 
 func (engine *Engine) startServers() {
@@ -24,6 +22,14 @@ func (engine *Engine) clean() {
 	for _, server := range engine.servers {
 		server.Stop()
 	}
+}
+
+func (engine *Engine) initialize() {
+	engine.servers = make([]server.Server, 0)
+}
+
+func (engine *Engine) AddServer(s server.Server) {
+	engine.servers = append(engine.servers, s)
 }
 
 func (engine *Engine) Serve() {

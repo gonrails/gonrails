@@ -8,7 +8,7 @@ import (
 )
 
 type Server struct {
-	router *gin.Engine
+	Router *gin.Engine
 	server *http.Server
 }
 
@@ -21,7 +21,7 @@ func newRouter(configuration *routerConfiguration) *gin.Engine {
 func newServer(config *Configuration) *Server {
 	newRouter := newRouter(config.routerConfiguration)
 	return &Server{
-		router: newRouter,
+		Router: newRouter,
 		server: &http.Server{
 			Handler:        newRouter,
 			Addr:           config.httpConfiguration.addr,
