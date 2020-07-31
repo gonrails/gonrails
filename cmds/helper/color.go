@@ -6,8 +6,18 @@ import (
 	"unicode"
 )
 
-// 这里提供终端的ASCII输出
+const (
+	textBlack = iota + 30
+	textRed
+	textGreen
+	textYellow
+	textBlue
+	textPurple
+	textCyan
+	textWhite
+)
 
+// 这里提供终端的ASCII输出
 type colorWriter struct {
 	w io.Writer
 }

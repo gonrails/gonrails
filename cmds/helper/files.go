@@ -20,7 +20,7 @@ func FileExists(path string) bool {
 // CreateFile -
 func CreateFile(filePath string, templatePath string, data interface{}) {
 
-	log.Printf("Creating file : %s", filePath)
+	log.Printf(Red("---------> Creating file : %s"), Green(filePath))
 
 	file, err := os.Create(filePath)
 	PanicError(err)

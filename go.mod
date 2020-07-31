@@ -1,16 +1,16 @@
-module github.com/gonrails/gonrails
+module gonrails
 
-go 1.12
+go 1.14
 
 require (
-	github.com/gin-gonic/gin v1.4.0
-	github.com/go-sql-driver/mysql v1.4.1
-	github.com/jinzhu/gorm v1.9.8
-	github.com/spf13/viper v1.4.0
-	github.com/streadway/amqp v0.0.0-20190404075320-75d898a42a94
+	github.com/gin-gonic/gin v1.6.3
+	github.com/go-sql-driver/mysql v1.5.0
+	github.com/gonrails/gonrails v0.1.5
+	github.com/jinzhu/gorm v1.9.14
+	github.com/spf13/viper v1.7.0
+	github.com/streadway/amqp v1.0.0
+	github.com/urfave/cli/v2 v2.2.0
 	github.com/w-zengtao/struct2json v0.0.0-20190426013937-6e8669a0e211
-	golang.org/x/crypto v0.0.0-20190701094942-4def268fd1a4 // indirect
-	golang.org/x/net v0.0.0-20190724013045-ca1201d0de80 // indirect
-	golang.org/x/sys v0.0.0-20190804053845-51ab0e2deafa // indirect
-	gopkg.in/gormigrate.v1 v1.6.0 // indirect
 )
+
+replace github.com/gonrails/gonrails => /Users/zyc/Developer/gonrails/gonrails

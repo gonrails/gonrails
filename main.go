@@ -1,32 +1,36 @@
 package main
 
 import (
-	"flag"
+	"fmt"
 	"os"
 
 	"github.com/gonrails/gonrails/cmds"
+
+	"github.com/urfave/cli/v2"
 )
 
 func main() {
-
-	flag.Parse()
-	args := flag.Args()
-
-	if len(args) < 1 {
-		cmds.Usage()
-		os.Exit(2)
+	app := cli.NewApp()
+	app.Name = "gonrails"
+	app.Usage = "Gonrails 命令行工具"
+	app.Commands = []*cli.Command{
+		{
+			Name:   "new",
+			Usage:  "创建新项目 | Create a new project",
+			Action: cmds.New,
+		},
+		{
+			Name:  "version",
+			Usage: "当前版本 | gonrails version",
+			Action: func(c *cli.Context) error {
+				fmt.Println(cmds.Version())
+				return nil
+			},
+		},
 	}
 
-	if "new" == args[0] {
-		cmds.New(args[1])
-	}
-
-	if "help" == args[0] {
-		cmds.Usage()
-		return
-	}
-
-	if "generate" == args[0] {
-		cmds.Generate(args)
+	err := app.Run(os.Args)
+	if err != nil {
+		panic(err)
 	}
 }

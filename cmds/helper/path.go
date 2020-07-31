@@ -5,16 +5,16 @@ import (
 	"os"
 )
 
-var ProjectPath string  // 在哪里生成项目代码
-var TemplatePath string // 模版的目录在哪里
+var ProjectPath string  // 生成项目地址
+var TemplatePath string // 模版的目录
 
 func init() {
 	if "true" == os.Getenv("DEV") {
 		ProjectPath, _ = os.Getwd()
-		TemplatePath = fmt.Sprintf("%s/templates", ProjectPath)
+		TemplatePath = fmt.Sprintf("%s/cmds/templates", ProjectPath)
 	} else {
 		ProjectPath, _ = os.Getwd()
-		TemplatePath = fmt.Sprintf("%s/src/github.com/gonrails/gonrails/templates", os.Getenv("GOPATH"))
+		TemplatePath = fmt.Sprintf("%s/src/github.com/gonrails/gonrails/cmds/templates", os.Getenv("GOPATH"))
 	}
 
 	fmt.Println(ProjectPath)
