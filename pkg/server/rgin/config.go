@@ -2,32 +2,39 @@ package rgin
 
 import "time"
 
-type routerConfiguration struct {
-	mode           string
-	enableRecovery bool
+type RouterConfiguration struct {
+	Mode           string
+	EnableRecovery bool
 }
 
-type httpConfiguration struct {
-	addr         string
-	readTimeout  time.Duration
-	writeTimeout time.Duration
+type HttpConfiguration struct {
+	Addr         string
+	ReadTimeout  time.Duration
+	WriteTimeout time.Duration
 }
 
 type Configuration struct {
-	routerConfiguration *routerConfiguration
-	httpConfiguration   *httpConfiguration
+	routerConfiguration *RouterConfiguration
+	httpConfiguration   *HttpConfiguration
+}
+
+func Config(httpConfig *HttpConfiguration, ginConfig *RouterConfiguration) *Configuration {
+	return &Configuration{
+		httpConfiguration:   httpConfig,
+		routerConfiguration: ginConfig,
+	}
 }
 
 func defaultConfiguration() *Configuration {
 	return &Configuration{
-		httpConfiguration: &httpConfiguration{
-			readTimeout:  10 * time.Second,
-			writeTimeout: 10 * time.Second,
-			addr:         ":8080",
+		httpConfiguration: &HttpConfiguration{
+			WriteTimeout: 10 * time.Second,
+			ReadTimeout:  10 * time.Second,
+			Addr:         ":8080",
 		},
-		routerConfiguration: &routerConfiguration{
-			mode:           "debug",
-			enableRecovery: true,
+		routerConfiguration: &RouterConfiguration{
+			Mode:           "debug",
+			EnableRecovery: true,
 		},
 	}
 }

@@ -12,9 +12,12 @@ type Server struct {
 	server *http.Server
 }
 
-func newRouter(configuration *routerConfiguration) *gin.Engine {
+func newRouter(ginConfig *RouterConfiguration) *gin.Engine {
+	gin.SetMode(ginConfig.Mode)
 	router := gin.Default()
-	router.Use(gin.Recovery())
+	if ginConfig.EnableRecovery {
+		router.Use(gin.Recovery())
+	}
 	return router
 }
 
@@ -24,9 +27,9 @@ func newServer(config *Configuration) *Server {
 		Router: newRouter,
 		server: &http.Server{
 			Handler:        newRouter,
-			Addr:           config.httpConfiguration.addr,
-			ReadTimeout:    config.httpConfiguration.readTimeout,
-			WriteTimeout:   config.httpConfiguration.writeTimeout,
+			Addr:           config.httpConfiguration.Addr,
+			ReadTimeout:    config.httpConfiguration.ReadTimeout,
+			WriteTimeout:   config.httpConfiguration.WriteTimeout,
 			MaxHeaderBytes: 1 << 20,
 		},
 	}
@@ -35,9 +38,12 @@ func newServer(config *Configuration) *Server {
 /* -------------------------------- Functions -------------------------------- */
 // DefaultServer call newServer with default config
 func DefaultServer() *Server {
-	logrus.Println("RGin Server Initializing...")
-
+	logrus.Warnln("RGin Server Initializing By Default Configuration ...")
 	return newServer(defaultConfiguration())
+}
+
+func NewServer(config *Configuration) *Server {
+	return newServer(config)
 }
 
 /* -------------------------------- Methods -------------------------------- */
