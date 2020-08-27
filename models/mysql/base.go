@@ -2,18 +2,19 @@ package mysql
 
 import (
 	"fmt"
-	"time"
 	"net/url"
+	"time"
 
-	_ "github.com/go-sql-driver/mysql"
-	"github.com/jinzhu/gorm"
 	"github.com/gonrails/gonrails/utils/common"
+	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
 )
 
 // Open open a mysql database to use
 func Open(host, port, username, password, name string) *gorm.DB {
 	timezone := "'Asia/Shanghai'"
-	dbConfig := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=true&loc=Local&time_zone=%s",
+	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=true&loc=Local&time_zone=%s",
 		username,
 		password,
 		host,
@@ -22,14 +23,17 @@ func Open(host, port, username, password, name string) *gorm.DB {
 		url.QueryEscape(timezone),
 	)
 
-	db, err := gorm.Open("mysql", dbConfig)
+	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
+		Logger: logger.Default.LogMode(logger.Info),
+	})
 	common.PanicError(err)
 	return db
 }
 
 // ConfigureMySQL configure db's idles connections, max connections
 func ConfigureMySQL(db *gorm.DB, idles, connections int) {
-	db.DB().SetMaxIdleConns(idles)
-	db.DB().SetMaxOpenConns(connections)
-	db.DB().SetConnMaxLifetime(time.Minute * 1)
+	sqlDB, _ := db.DB()
+	sqlDB.SetMaxIdleConns(idles)
+	sqlDB.SetMaxOpenConns(connections)
+	sqlDB.SetConnMaxLifetime(time.Minute * 1)
 }
