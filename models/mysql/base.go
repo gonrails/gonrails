@@ -8,11 +8,10 @@ import (
 	"github.com/gonrails/gonrails/utils/common"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
-	"gorm.io/gorm/logger"
 )
 
 // Open open a mysql database to use
-func Open(host, port, username, password, name string) *gorm.DB {
+func Open(host, port, username, password, name string, gormConfig *gorm.Config) *gorm.DB {
 	timezone := "'Asia/Shanghai'"
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8mb4&parseTime=true&loc=Local&time_zone=%s",
 		username,
@@ -23,9 +22,7 @@ func Open(host, port, username, password, name string) *gorm.DB {
 		url.QueryEscape(timezone),
 	)
 
-	db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{
-		Logger: logger.Default.LogMode(logger.Info),
-	})
+	db, err := gorm.Open(mysql.Open(dsn), gormConfig)
 	common.PanicError(err)
 	return db
 }
