@@ -2,10 +2,10 @@ package cmds
 
 import (
 	"fmt"
-	"gonrails/cmds/helper"
 	"log"
 	"os"
 
+	"github.com/gonrails/gonrails/cmds/helper"
 	"github.com/gonrails/gonrails/cmds/new"
 	"github.com/urfave/cli/v2"
 )

@@ -2,10 +2,10 @@ package postgres
 
 import (
 	"fmt"
-	"gonrails/utils/common"
 	"net/url"
 	"time"
 
+	"github.com/gonrails/gonrails/utils/common"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
