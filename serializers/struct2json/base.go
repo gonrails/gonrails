@@ -3,6 +3,7 @@ package struct2json
 import (
 	"errors"
 	"reflect"
+	"time"
 )
 
 func getType(v interface{}) reflect.Type {
@@ -71,7 +72,13 @@ func Convert(struc interface{}) (map[string]interface{}, error) {
 				ansMap[k] = v
 			}
 		} else {
-			ansMap[getKey(&filed)] = getMapValue(value)
+			switch filed.Type.String() {
+			case "time.Time":
+				ansMap[getKey(&filed)] = value.Interface().(time.Time)
+			default:
+				ansMap[getKey(&filed)] = getMapValue(value)
+			}
+
 		}
 	}
 
