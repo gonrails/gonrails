@@ -4,6 +4,9 @@ import (
 	"errors"
 	"reflect"
 	"time"
+
+	"github.com/gonrails/gonrails/serializers"
+	"github.com/sirupsen/logrus"
 )
 
 func getType(v interface{}) reflect.Type {
@@ -33,7 +36,7 @@ func getNoroot(f *reflect.StructField) bool {
 	return false
 }
 
-func getMapValue(v reflect.Value) (i interface{}) {
+func getMapValue(v reflect.Value, t reflect.Type) (i interface{}) {
 
 	if reflect.Ptr == v.Kind() {
 		v = v.Elem()
@@ -43,10 +46,29 @@ func getMapValue(v reflect.Value) (i interface{}) {
 		return nil
 	}
 
+	modelType := reflect.TypeOf((*serializers.Serializer)(nil)).Elem()
+
+	if t.Implements(modelType) {
+		method := v.MethodByName("Serialize")
+		return method.Call([]reflect.Value{v})
+	}
+
 	if reflect.Struct == v.Kind() {
 		ans, _ := Convert(v.Interface())
 		return ans
 	}
+
+	if reflect.Slice == v.Kind() {
+		var ans []interface{}
+		for i := 0; i < v.Len(); i++ {
+			t := v.Index(i).Type()
+			logrus.Println(t.Name())
+			value := getMapValue(v.Index(i), v.Index(i).Type())
+			ans = append(ans, value)
+		}
+		return ans
+	}
+
 	return v.Interface()
 }
 
@@ -67,7 +89,7 @@ func Convert(struc interface{}) (map[string]interface{}, error) {
 		value := sVal.FieldByName(filed.Name)
 
 		if getNoroot(&filed) {
-			subMap := getMapValue(value).(map[string]interface{})
+			subMap := getMapValue(value, filed.Type).(map[string]interface{})
 			for k, v := range subMap {
 				ansMap[k] = v
 			}
@@ -76,7 +98,7 @@ func Convert(struc interface{}) (map[string]interface{}, error) {
 			case "time.Time":
 				ansMap[getKey(&filed)] = value.Interface().(time.Time)
 			default:
-				ansMap[getKey(&filed)] = getMapValue(value)
+				ansMap[getKey(&filed)] = getMapValue(value, filed.Type)
 			}
 
 		}
